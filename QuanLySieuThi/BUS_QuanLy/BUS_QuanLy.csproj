@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BUS_HangHoa.cs" />
     <Compile Include="BUS_LoaiHangHoa.cs" />
+    <Compile Include="BUS_LoHang.cs" />
     <Compile Include="BUS_TaiKhoan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

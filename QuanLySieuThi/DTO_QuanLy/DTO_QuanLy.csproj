@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO_CaLamViec.cs" />
+    <Compile Include="DTO_ChiPhi.cs" />
+    <Compile Include="DTO_BangChamCong.cs" />
+    <Compile Include="DTO_ChucVu.cs" />
     <Compile Include="DTO_HangHoa.cs" />
     <Compile Include="DTO_HoaDonMua.cs" />
     <Compile Include="DTO_KhoHang.cs" />
@@ -48,6 +52,7 @@
     <Compile Include="DTO_LoHang.cs" />
     <Compile Include="DTO_NhaCungCap.cs" />
     <Compile Include="DTO_TaiKhoan.cs" />
+    <Compile Include="DTO_NhanVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

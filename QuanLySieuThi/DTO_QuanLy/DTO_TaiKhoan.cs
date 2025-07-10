@@ -9,6 +9,7 @@ namespace DTO_QuanLy
     public class DTO_TaiKhoan
     {
         private int maTaiKhoan;
+        private int maNhanVien;
         private string tenDangNhap;
         private string matKhau;
         public DTO_TaiKhoan()
@@ -17,14 +18,16 @@ namespace DTO_QuanLy
             TenDangNhap = "";
             MatKhau = "";
         }
-        public DTO_TaiKhoan(int maTaiKhoan, string tenDangNhap, string matKhau)
+        public DTO_TaiKhoan(int maTaiKhoan, int maNhanVien, string tenDangNhap, string matKhau)
         {
             this.MaTaiKhoan = maTaiKhoan;
             this.TenDangNhap = tenDangNhap;
             this.MatKhau = matKhau;
+            this.MaNhanVien = maNhanVien;
         }
         public int MaTaiKhoan { get => maTaiKhoan; set => maTaiKhoan = value; }
         public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
         public string MatKhau { get => matKhau; set => matKhau = value; }
+        public int MaNhanVien { get => maNhanVien; set => maNhanVien = value; }
     }
 }

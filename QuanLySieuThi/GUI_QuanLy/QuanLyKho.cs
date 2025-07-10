@@ -16,15 +16,27 @@ namespace GUI_QuanLy
     {
         private BUS_HangHoa busHangHoa;
         private BUS_LoaiHangHoa busLoaiHangHoa;
+        private BUS_LoHang busLoHang;
 
         public QuanLyKho()
         {
             InitializeComponent();
             busHangHoa = new BUS_HangHoa();
             busLoaiHangHoa = new BUS_LoaiHangHoa();
+            busLoHang = new BUS_LoHang();
         }
 
         private void QuanLyKho_Load(object sender, EventArgs e)
+        {
+            LoadComboBoxHangHoa();
+            LoadLoHang();
+            PerformSearchHangHoa();
+        }
+
+        /*
+         * Hàng hóa
+         */
+        private void LoadComboBoxHangHoa()
         {
             DataTable dtLoaiHangHoa = busLoaiHangHoa.GetLoaiHangHoa();
             if (dtLoaiHangHoa != null && dtLoaiHangHoa.Rows.Count > 0)
@@ -38,21 +50,16 @@ namespace GUI_QuanLy
             {
                 MessageBox.Show("Không có dữ liệu loại hàng hóa để hiển thị.");
             }
-            PerformSearch();
         }
-        private void PerformSearch()
+        private void PerformSearchHangHoa()
         {
-            string keyword = txtTimKiem.Text.Trim();
+            string keyword = txtTimKiemHangHoa.Text.Trim();
             dgvHangHoa.DataSource = busHangHoa.GetHangHoa(tenHangHoa: keyword);
         }
+
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            PerformSearch();
-        }
-
-        private void txtTimKiem_TextChanged_1(object sender, EventArgs e)
-        {
-            PerformSearch();
+            PerformSearchHangHoa();
         }
 
         private void dgvHangHoa_Click(object sender, EventArgs e)
@@ -67,7 +74,7 @@ namespace GUI_QuanLy
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnThemHangHoa_Click(object sender, EventArgs e)
         {
             string tenHangHoa = txtTenHangHoa.Text.Trim();
             string donViTinh = txtDonViTinh.Text.Trim();
@@ -91,7 +98,7 @@ namespace GUI_QuanLy
                 if (result)
                 {
                     MessageBox.Show("Thêm hàng hóa thành công.");
-                    PerformSearch();
+                    PerformSearchHangHoa();
                 }
                 else
                 {
@@ -102,10 +109,10 @@ namespace GUI_QuanLy
             {
                 MessageBox.Show($"Lỗi: {ex.Message}");
             }
-            PerformSearch();
+            PerformSearchHangHoa();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnXoaHangHoa_Click(object sender, EventArgs e)
         {
             if (dgvHangHoa.SelectedRows.Count > 0)
             {
@@ -117,7 +124,7 @@ namespace GUI_QuanLy
                     if (result)
                     {
                         MessageBox.Show("Xóa hàng hóa thành công.");
-                        PerformSearch();
+                        PerformSearchHangHoa();
                     }
                     else
                     {
@@ -131,7 +138,7 @@ namespace GUI_QuanLy
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btnSuaHangHoa_Click(object sender, EventArgs e)
         {
             string tenHangHoa = txtTenHangHoa.Text.Trim();
             string donViTinh = txtDonViTinh.Text.Trim();
@@ -160,7 +167,7 @@ namespace GUI_QuanLy
                     if (result)
                     {
                         MessageBox.Show("Cập nhật hàng hóa thành công.");
-                        PerformSearch();
+                        PerformSearchHangHoa();
                     }
                     else
                     {
@@ -175,6 +182,29 @@ namespace GUI_QuanLy
             else
             {
                 MessageBox.Show("Vui lòng chọn hàng hóa để sửa.");
+            }
+        }
+
+        /*
+         * Lô hàng
+         */
+        private void LoadLoHang()
+        {
+            try
+            {
+                DataTable dtLoHang = busLoHang.GetLoHang();
+                if (dtLoHang != null && dtLoHang.Rows.Count > 0)
+                {
+                    dgvLoHang.DataSource = dtLoHang;
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu lô hàng để hiển thị.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải lô hàng: {ex.Message}");
             }
         }
     }
