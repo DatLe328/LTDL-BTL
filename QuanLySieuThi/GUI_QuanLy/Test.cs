@@ -18,18 +18,12 @@ namespace GUI_QuanLy
             InitializeComponent();
         }
 
-        BUS_KhachHang busKhachHang = new BUS_KhachHang();
         private void Test_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = busKhachHang.GetAllKhachHang();
         }
         private void PerformSearch()
         {
-            string searchTerm = textBox1.Text.Trim();
-            DataTable dt = busKhachHang.SearchKhachHang(searchTerm);
-            DataView dv = new DataView(dt);
             
-            dataGridView1.DataSource = dv;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

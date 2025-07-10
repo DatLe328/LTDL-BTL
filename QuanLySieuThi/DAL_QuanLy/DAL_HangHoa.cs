@@ -11,27 +11,20 @@ namespace DAL_QuanLy
 {
     public class DAL_HangHoa : DBConnect
     {
-        DTO_HangHoa hangHoa;
-        public DAL_HangHoa()
-        {
-            hangHoa = new DTO_HangHoa();
-        }
         public bool AddHangHoa(DTO_HangHoa newHangHoa)
         {
             try
             {
-                string sql = "INSERT INTO HangHoa (MaHangHoa, TenHangHoa, DonViTinh, SoLuong, GiaBan) " +
-                             "VALUES (@MaHangHoa, @TenHangHoa, @DonViTinh, @SoLuong, @GiaBan)";
+                string sql = "INSERT INTO HangHoa (TenHangHoa, DonViTinh, GiaBan, MaLoaiHangHoa) " +
+                             "VALUES (@TenHangHoa, @DonViTinh, @GiaBan, @MaLoaiHangHoa)";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@MaHangHoa", newHangHoa.MaHangHoa);
                     cmd.Parameters.AddWithValue("@TenHangHoa", newHangHoa.TenHangHoa);
                     cmd.Parameters.AddWithValue("@DonViTinh", newHangHoa.DonViTinh);
-                    cmd.Parameters.AddWithValue("@SoLuong", newHangHoa.SoLuong);
                     cmd.Parameters.AddWithValue("@GiaBan", newHangHoa.GiaBan);
+                    cmd.Parameters.AddWithValue("@MaLoaiHangHoa", newHangHoa.MaLoaiHangHoa);
                     conn.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
-                    conn.Close();
                     return rowsAffected > 0;
                 }
             }
@@ -40,20 +33,24 @@ namespace DAL_QuanLy
                 Console.WriteLine("Error: " + ex.Message);
                 return false;
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public bool UpdateHangHoa(DTO_HangHoa updatedHangHoa)
         {
             try
             {
                 string sql = "UPDATE HangHoa SET TenHangHoa = @TenHangHoa, DonViTinh = @DonViTinh, " +
-                             "SoLuong = @SoLuong, GiaBan = @GiaBan WHERE MaHangHoa = @MaHangHoa";
+                             "GiaBan = @GiaBan, MaLoaiHangHoa = @MaLoaiHangHoa WHERE MaHangHoa = @MaHangHoa";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@MaHangHoa", updatedHangHoa.MaHangHoa);
                     cmd.Parameters.AddWithValue("@TenHangHoa", updatedHangHoa.TenHangHoa);
                     cmd.Parameters.AddWithValue("@DonViTinh", updatedHangHoa.DonViTinh);
-                    cmd.Parameters.AddWithValue("@SoLuong", updatedHangHoa.SoLuong);
                     cmd.Parameters.AddWithValue("@GiaBan", updatedHangHoa.GiaBan);
+                    cmd.Parameters.AddWithValue("@MaLoaiHangHoa", updatedHangHoa.MaLoaiHangHoa);
                     conn.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
                     conn.Close();

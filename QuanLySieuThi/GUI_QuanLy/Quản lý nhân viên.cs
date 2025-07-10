@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI_QuanLy
 {
-    public partial class QuanLyNhaCungCap : Form
+    public partial class Quản_lý_nhân_viên : Form
     {
-        public QuanLyNhaCungCap()
+        public Quản_lý_nhân_viên()
         {
             InitializeComponent();
         }

@@ -14,6 +14,7 @@ namespace DTO_QuanLy
         private string soDienThoai;
         private string email;
         private string maSoThue;
+        private string soTaiKhoan;
 
         public DTO_NhaCungCap()
         {
@@ -23,7 +24,7 @@ namespace DTO_QuanLy
             SoDienThoai = "";
             Email = "";
         }
-        public DTO_NhaCungCap(int maNCC, string tenNCC, string diaChi, string soDienThoai, string email, string maSoThue)
+        public DTO_NhaCungCap(int maNCC, string tenNCC, string diaChi, string soDienThoai, string email, string maSoThue, string soTaiKhoan)
         {
             this.MaNCC = maNCC;
             this.TenNCC = tenNCC;
@@ -31,6 +32,7 @@ namespace DTO_QuanLy
             this.SoDienThoai = soDienThoai;
             this.Email = email;
             this.MaSoThue = maSoThue;
+            this.SoTaiKhoan = soTaiKhoan;
         }
         public int MaNCC { get => maNCC; set => maNCC = value; }
         public string TenNCC { get => tenNCC; set => tenNCC = value; }
@@ -38,5 +40,9 @@ namespace DTO_QuanLy
         public string SoDienThoai { get => soDienThoai; set => soDienThoai = value; }
         public string Email { get => email; set => email = value; }
         public string MaSoThue { get => maSoThue; set => maSoThue = value; }
+        public string SoTaiKhoan
+        {
+            get => soTaiKhoan; set => soTaiKhoan = value;
+        }
     }
 }

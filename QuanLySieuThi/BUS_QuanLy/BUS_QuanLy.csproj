@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS_HangHoa.cs" />
-    <Compile Include="BUS_KhachHang.cs" />
     <Compile Include="BUS_LoaiHangHoa.cs" />
     <Compile Include="BUS_TaiKhoan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
