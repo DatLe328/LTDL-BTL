@@ -12,7 +12,7 @@ namespace DAL_QuanLy
         protected SqlConnection conn;
         public DBConnect()
         {
-            conn = new SqlConnection("Server=(localdb)\\localhost;Database=QLST;Integrated Security=True;TrustServerCertificate=True;");
+            conn = new SqlConnection("Server=(localdb)\\localDB1;Database=QLST;Integrated Security=True;TrustServerCertificate=True;");
         }
     }
 }
