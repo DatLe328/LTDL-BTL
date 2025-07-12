@@ -16,6 +16,16 @@ namespace GUI_QuanLy
         public Login()
         {
             InitializeComponent();
+            // Style cho nút Đăng nhập
+            btnDangNhap.BackColor = Color.MediumSlateBlue;
+            btnDangNhap.ForeColor = Color.White;
+            btnDangNhap.FlatStyle = FlatStyle.Flat;
+            btnDangNhap.FlatAppearance.BorderSize = 0;
+            btnDangNhap.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+            // Style cho textbox
+            txtTenDangNhap.BorderStyle = BorderStyle.FixedSingle;
+            txtMatKhau.BorderStyle = BorderStyle.FixedSingle;
         }
         private BUS_TaiKhoan busTaiKhoan = new BUS_TaiKhoan();
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -39,6 +49,10 @@ namespace GUI_QuanLy
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtTenDangNhap_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
