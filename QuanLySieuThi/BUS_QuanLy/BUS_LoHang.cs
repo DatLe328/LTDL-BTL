@@ -28,9 +28,5 @@ namespace BUS_QuanLy
         {
             return dalLoHang.UpdateLoHang(newLoHang);
         }
-        public bool DeleteLoHang(DTO_LoHang newLoHang)
-        {
-            return dalLoHang.DeleteLoHang(newLoHang);
-        }
     }
 }

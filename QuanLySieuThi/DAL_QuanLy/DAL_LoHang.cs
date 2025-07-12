@@ -16,13 +16,12 @@ namespace DAL_QuanLy
             try
             {
                 string sql = @"UPDATE LoHang SET 
-                               DonGia = @DonGia,
-                               SoLuong = @SoLuong,
-                               SoLuongTonKho = @SoLuongTonKho,
-                               NSX = @NSX,
-                               HSD = @HSD,
-                               MaKho = @MaKho,
-                               WHERE MaLoHang = @MaLoHang";
+                           DonGia = @DonGia,
+                           SoLuong = @SoLuong,
+                           SoLuongTonKho = @SoLuongTonKho,
+                           NSX = @NSX,
+                           HSD = @HSD
+                           WHERE MaLoHang = @MaLoHang";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@DonGia", loHang.DonGia);
@@ -30,9 +29,6 @@ namespace DAL_QuanLy
                     cmd.Parameters.AddWithValue("@SoLuongTonKho", loHang.SoLuongTonKho);
                     cmd.Parameters.AddWithValue("@NSX", loHang.NgaySanXuat);
                     cmd.Parameters.AddWithValue("@HSD", loHang.HanSuDung);
-                    cmd.Parameters.AddWithValue("@MaHoaDonMua", loHang.MaHoaDonMua);
-                    cmd.Parameters.AddWithValue("@MaHangHoa", loHang.MaHangHoa);
-                    cmd.Parameters.AddWithValue("@MaKho", loHang.MaKho);
                     cmd.Parameters.AddWithValue("@MaLoHang", loHang.MaLoHang);
 
                     conn.Open();
@@ -43,30 +39,6 @@ namespace DAL_QuanLy
             catch (Exception ex)
             {
                 Console.WriteLine("UpdateLoHang Error: " + ex.Message);
-                return false;
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                    conn.Close();
-            }
-        }
-        public bool DeleteLoHang(int maLo)
-        {
-            try
-            {
-                string sql = "DELETE FROM LoHang WHERE MaLo = @MaLo";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@MaLo", maLo);
-                    conn.Open();
-                    int rows = cmd.ExecuteNonQuery();
-                    return rows > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("DeleteLoHang Error: " + ex.Message);
                 return false;
             }
             finally
@@ -97,11 +69,6 @@ namespace DAL_QuanLy
                 Console.WriteLine("Error: " + ex.Message);
                 return null;
             }
-        }
-
-        public bool DeleteLoHang(DTO_LoHang newLoHang)
-        {
-            throw new NotImplementedException();
         }
     }
 }
