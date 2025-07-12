@@ -16,6 +16,14 @@ namespace GUI_QuanLy
         public Login()
         {
             InitializeComponent();
+            btnDangNhap.BackColor = Color.MediumSlateBlue;
+            btnDangNhap.ForeColor = Color.White;
+            btnDangNhap.FlatStyle = FlatStyle.Flat;
+            btnDangNhap.FlatAppearance.BorderSize = 0;
+            btnDangNhap.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+            txtTenDangNhap.BorderStyle = BorderStyle.FixedSingle;
+            txtMatKhau.BorderStyle = BorderStyle.FixedSingle;
         }
         private BUS_TaiKhoan busTaiKhoan = new BUS_TaiKhoan();
         private void btnDangNhap_Click(object sender, EventArgs e)
