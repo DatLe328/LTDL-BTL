@@ -24,5 +24,17 @@ namespace BUS_QuanLy
         {
             return dalLoHang.AddLoHang(newLoHang);
         }
+        public bool AddLoHang(List<DTO_LoHang> newLoHangs)
+        {
+            bool result = true;
+            foreach (var loHang in newLoHangs)
+            {
+                if (!dalLoHang.AddLoHang(loHang))
+                {
+                    result = false;
+                }
+            }
+            return result;
+        }
     }
 }

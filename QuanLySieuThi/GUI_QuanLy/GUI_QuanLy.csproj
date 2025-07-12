@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DonViHSD.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

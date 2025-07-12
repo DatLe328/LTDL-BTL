@@ -28,9 +28,8 @@ namespace BUS_QuanLy
         {
             return dalHangHoa.DeleteHangHoa(maHangHoa);
         }
-        public DataTable GetHangHoa(string maHangHoa = "", string tenHangHoa = "")
+        public DataTable GetHangHoa(int maHangHoa = -1, string tenHangHoa = "")
         {
-            Console.WriteLine("Getting in BUS_HangHoa");
             return dalHangHoa.GetHangHoa(maHangHoa: maHangHoa, tenHangHoa: tenHangHoa);
         }
     }
