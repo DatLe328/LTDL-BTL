@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageHangHoa = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -67,14 +70,15 @@
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnTimKiemHoaDonMua = new System.Windows.Forms.Button();
+            this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.txtTimKiemHoaDonMua = new System.Windows.Forms.TextBox();
             this.dgvHoaDonMua = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
-            this.btnTimKiemHoaDonMua = new System.Windows.Forms.Button();
+            this.chartThongke = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl.SuspendLayout();
             this.tabPageHangHoa.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -89,6 +93,7 @@
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonMua)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartThongke)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -449,6 +454,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.chartThongke);
             this.tabPage2.Controls.Add(this.groupBox7);
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
             this.tabPage2.Name = "tabPage2";
@@ -470,6 +476,26 @@
             this.groupBox7.Size = new System.Drawing.Size(645, 550);
             this.groupBox7.TabIndex = 10;
             this.groupBox7.TabStop = false;
+            // 
+            // btnTimKiemHoaDonMua
+            // 
+            this.btnTimKiemHoaDonMua.Location = new System.Drawing.Point(417, 61);
+            this.btnTimKiemHoaDonMua.Name = "btnTimKiemHoaDonMua";
+            this.btnTimKiemHoaDonMua.Size = new System.Drawing.Size(174, 40);
+            this.btnTimKiemHoaDonMua.TabIndex = 3;
+            this.btnTimKiemHoaDonMua.Text = "Tìm kiếm";
+            this.btnTimKiemHoaDonMua.UseVisualStyleBackColor = true;
+            this.btnTimKiemHoaDonMua.Click += new System.EventHandler(this.btnTimKiemHoaDonMua_Click);
+            // 
+            // dtpNgayNhap
+            // 
+            this.dtpNgayNhap.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayNhap.Location = new System.Drawing.Point(17, 25);
+            this.dtpNgayNhap.Name = "dtpNgayNhap";
+            this.dtpNgayNhap.Size = new System.Drawing.Size(380, 35);
+            this.dtpNgayNhap.TabIndex = 2;
+            this.dtpNgayNhap.Value = new System.DateTime(2025, 7, 10, 0, 0, 0, 0);
             // 
             // txtTimKiemHoaDonMua
             // 
@@ -513,25 +539,21 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
-            // dtpNgayNhap
+            // chartThongke
             // 
-            this.dtpNgayNhap.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhap.Location = new System.Drawing.Point(17, 25);
-            this.dtpNgayNhap.Name = "dtpNgayNhap";
-            this.dtpNgayNhap.Size = new System.Drawing.Size(380, 35);
-            this.dtpNgayNhap.TabIndex = 2;
-            this.dtpNgayNhap.Value = new System.DateTime(2025, 7, 10, 0, 0, 0, 0);
-            // 
-            // btnTimKiemHoaDonMua
-            // 
-            this.btnTimKiemHoaDonMua.Location = new System.Drawing.Point(417, 61);
-            this.btnTimKiemHoaDonMua.Name = "btnTimKiemHoaDonMua";
-            this.btnTimKiemHoaDonMua.Size = new System.Drawing.Size(174, 40);
-            this.btnTimKiemHoaDonMua.TabIndex = 3;
-            this.btnTimKiemHoaDonMua.Text = "Tìm kiếm";
-            this.btnTimKiemHoaDonMua.UseVisualStyleBackColor = true;
-            this.btnTimKiemHoaDonMua.Click += new System.EventHandler(this.btnTimKiemHoaDonMua_Click);
+            chartArea1.Name = "ChartArea1";
+            this.chartThongke.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartThongke.Legends.Add(legend1);
+            this.chartThongke.Location = new System.Drawing.Point(6, 67);
+            this.chartThongke.Name = "chartThongke";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartThongke.Series.Add(series1);
+            this.chartThongke.Size = new System.Drawing.Size(557, 423);
+            this.chartThongke.TabIndex = 11;
+            this.chartThongke.Text = "chart1";
             // 
             // QuanLyKho
             // 
@@ -564,6 +586,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonMua)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartThongke)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -617,5 +640,6 @@
         private System.Windows.Forms.DataGridView dgvHoaDonMua;
         private System.Windows.Forms.Button btnTimKiemHoaDonMua;
         private System.Windows.Forms.DateTimePicker dtpNgayNhap;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartThongke;
     }
 }

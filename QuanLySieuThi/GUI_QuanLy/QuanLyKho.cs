@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI_QuanLy
 {
@@ -354,6 +355,7 @@ namespace GUI_QuanLy
             {
                 MessageBox.Show("Lỗi khi tải hóa đơn mua: " + ex.Message);
             }
+            VeBieuDoThongKe();
         }
 
         private void txtTimKiemHoaDonMua_TextChanged(object sender, EventArgs e)
@@ -364,6 +366,7 @@ namespace GUI_QuanLy
         private void btnTimKiemHoaDonMua_Click(object sender, EventArgs e)
         {
             PerformSearchHoaDonMua();
+            VeBieuDoThongKe();
         }
         private void PerformSearchHoaDonMua()
         {
@@ -380,6 +383,25 @@ namespace GUI_QuanLy
                 MessageBox.Show("Không tìm thấy hóa đơn nào vào ngày đã chọn.");
             }
         }
+        private void VeBieuDoThongKe()
+        {
+            chartThongke.Series.Clear();
+            Series series = new Series("Tổng tiền");
+            series.ChartType = SeriesChartType.Column;
 
+            if (dgvHoaDonMua.Rows.Count > 0)
+            {
+                DataGridViewRow row = dgvHoaDonMua.Rows[0];
+                if (!row.IsNewRow)
+                {
+                    string ngay = Convert.ToDateTime(row.Cells["NgayNhap"].Value).ToString("dd/MM/yyyy");
+                    decimal tongTien = Convert.ToDecimal(row.Cells["TongTien"].Value);
+
+                    series.Points.AddXY(ngay, tongTien);
+                }
+            }
+
+            chartThongke.Series.Add(series);
+        }
     }
 }
