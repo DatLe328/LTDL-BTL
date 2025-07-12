@@ -1,6 +1,6 @@
 ﻿namespace GUI_QuanLy
 {
-    partial class QuanLyKho
+    partial class GUI_QuanLyKho
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageHangHoa = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtTimKiemHangHoa = new System.Windows.Forms.TextBox();
             this.dgvHangHoa = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -52,6 +53,7 @@
             this.txtTenHangHoa = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.txtTimKiemLoHang = new System.Windows.Forms.TextBox();
             this.dgvLoHang = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -95,8 +97,6 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPageHangHoa.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -133,6 +133,7 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1312, 697);
             this.tabControl.TabIndex = 0;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPageHangHoa
             // 
@@ -158,6 +159,15 @@
             this.groupBox1.Size = new System.Drawing.Size(622, 416);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(223, 29);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Tìm kiếm sản phẩm";
             // 
             // txtTimKiemHangHoa
             // 
@@ -327,6 +337,15 @@
             this.groupBox4.Size = new System.Drawing.Size(619, 530);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(22, 55);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(250, 29);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Tìm kiếm theo mã kho";
             // 
             // txtTimKiemLoHang
             // 
@@ -727,24 +746,6 @@
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(223, 29);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Tìm kiếm sản phẩm";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 55);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(250, 29);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "Tìm kiếm theo mã kho";
             // 
             // QuanLyKho
             // 

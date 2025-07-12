@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace GUI_QuanLy
 {
-    public partial class Login : Form
+    public partial class GUI_Login : Form
     {
-        public Login()
+        public GUI_Login()
         {
             InitializeComponent();
             btnDangNhap.BackColor = Color.MediumSlateBlue;
@@ -39,8 +39,10 @@ namespace GUI_QuanLy
             {
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Mở form chính của ứng dụng
-                //Form mainForm = new MainForm();
-                //mainForm.Show();S
+                Form mainForm = new GUI_MainForm();
+                mainForm.Show();
+                Globals.TenDangNhap = tenDangNhap;
+                Globals.MaNhanVien = busTaiKhoan.GetMaNhanVienByTenDangNhap(tenDangNhap);
                 this.Hide();
             }
             else

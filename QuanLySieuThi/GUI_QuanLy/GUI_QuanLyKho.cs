@@ -14,7 +14,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI_QuanLy
 {
-    public partial class QuanLyKho : Form
+    public partial class GUI_QuanLyKho : Form
     {
         private BUS_HangHoa busHangHoa;
         private BUS_LoaiHangHoa busLoaiHangHoa;
@@ -22,7 +22,7 @@ namespace GUI_QuanLy
         private BUS_NhaCungCap busNhaCungCap;
         private BUS_HoaDonMua busHoaDonMua;
 
-        public QuanLyKho()
+        public GUI_QuanLyKho()
         {
             InitializeComponent();
             busHangHoa = new BUS_HangHoa();
@@ -34,10 +34,32 @@ namespace GUI_QuanLy
 
         private void QuanLyKho_Load(object sender, EventArgs e)
         {
-            LoadQuanLyHangHoa();
-            LoadLoHang();
-            LoadQuanLyDatHang();
-            LoadHoaDonMua();
+            Console.WriteLine("Mã nhân viên: " + Globals.MaNhanVien);
+            if (Globals.MaNhanVien == -1)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.");
+                this.Close();
+            }
+        }
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var tabControl = sender as TabControl;
+
+            switch (tabControl.SelectedIndex)
+            {
+                case 0:
+                    LoadQuanLyHangHoa();
+                    break;
+                case 1:
+                    LoadLoHang();
+                    break;
+                case 2:
+                    LoadHoaDonMua();
+                    break;
+                case 3:
+                    LoadQuanLyDatHang();
+                    break;
+            }
         }
 
         /*
@@ -205,10 +227,6 @@ namespace GUI_QuanLy
                 {
                     dgvLoHang.DataSource = dtLoHang;
                 }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu lô hàng để hiển thị.");
-                }
             }
             catch (Exception ex)
             {
@@ -348,10 +366,6 @@ namespace GUI_QuanLy
                 if (dtHoaDon != null && dtHoaDon.Rows.Count > 0)
                 {
                     dgvHoaDonMua.DataSource = dtHoaDon;
-                }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu hóa đơn mua để hiển thị.");
                 }
             }
             catch (Exception ex)
@@ -507,10 +521,10 @@ namespace GUI_QuanLy
                             break;
                         }
                     }
-                    dgvDanhSachDatMua.Rows.Add(maLoaiHangHoa, maHangHoa, tenHangHoa, giaBan, soLuong, donViTinh, maNhaCungCap, hanSuDungTieuChuan, donViHanSuDung);
+                    dgvDanhSachDatMua.Rows.Add(maHangHoa, tenHangHoa, giaBan, soLuong, donViTinh, maLoaiHangHoa, maNhaCungCap, hanSuDungTieuChuan, donViHanSuDung);
                 }
-                catch (Exception ex)
-                {
+                    catch (Exception ex)
+                    {
                     MessageBox.Show($"Lỗi khi đặt hàng: {ex.Message}");
                 }
             }
@@ -556,21 +570,33 @@ namespace GUI_QuanLy
                 };
                 bool result = busHoaDonMua.AddHoaDonMua(newHoaDonMua);
                 int maHoaDonMua = busHoaDonMua.GetLastHoaDonMuaId();
+
                 List<DTO_LoHang> danhSachDatHang = new List<DTO_LoHang>();
                 foreach (DataGridViewRow row in dgvDanhSachDatMua.Rows)
                 {
                     Console.WriteLine(row.Cells["MaHangHoa"].Value);
                     if (row.IsNewRow) continue;
+                    var maHangHoa = Convert.ToInt32(row.Cells["MaHangHoa"].Value);
+                    var soLuong = Convert.ToInt32(row.Cells["SoLuong"].Value);
+                    var donGia = Convert.ToInt32(row.Cells["GiaBan"].Value);
+                    var ngaySanXuat = DateTime.Now;
+                    var hanSuDungTieuChuan = row.Cells["HanSuDungTieuChuan"].Value != null ? Convert.ToInt32(row.Cells["HanSuDungTieuChuan"].Value) : 0;
+                    var donViHanSuDung = row.Cells["DonViHanSuDung"].Value != null ? row.Cells["DonViHanSuDung"].Value.ToString() : "Ngày";
+                    var hanSuDung = TinhHanSuDung(DateTime.Now, hanSuDungTieuChuan, donViHanSuDung);
+                    var maKho = 1;
+                    Console.WriteLine($"Mã hàng hóa: {maHangHoa}, Số lượng: {soLuong}, Đơn giá: {donGia}, Ngày sản xuất: {ngaySanXuat}, Hạn sử dụng: {hanSuDung}");
+                    Console.WriteLine($"Mã hóa đơn mua: {maHoaDonMua}, Mã kho: {maKho}");
+
                     DTO_LoHang loHang = new DTO_LoHang
                     {
-                        MaHangHoa = Convert.ToInt32(row.Cells["MaHangHoa"].Value),
-                        SoLuong = Convert.ToInt32(row.Cells["SoLuong"].Value),
-                        SoLuongTonKho = Convert.ToInt32(row.Cells["SoLuong"].Value),
-                        DonGia = Convert.ToInt32(row.Cells["GiaBan"].Value),
-                        NgaySanXuat = DateTime.Now,
-                        HanSuDung = TinhHanSuDung(DateTime.Now, Convert.ToInt32(row.Cells["HanSuDungTieuChuan"]), row.Cells["DonViHanSuDung"].Value.ToString()),
+                        MaHangHoa = maHangHoa,
+                        SoLuong = soLuong,
+                        SoLuongTonKho = soLuong,
+                        DonGia = donGia,
+                        NgaySanXuat = ngaySanXuat,
+                        HanSuDung = hanSuDung,
                         MaHoaDonMua = maHoaDonMua,
-                        MaKho = -1
+                        MaKho = maKho
                     };
                     danhSachDatHang.Add(loHang);
                 }

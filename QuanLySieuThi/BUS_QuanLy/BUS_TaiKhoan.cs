@@ -18,5 +18,9 @@ namespace BUS_QuanLy
         {
             return dAL_TaiKhoan.Authenticate(username, password);
         }
+        public int GetMaNhanVienByTenDangNhap(string tenDangNhap)
+        {
+            return dAL_TaiKhoan.GetMaNhanVienByTenDangNhap(tenDangNhap);
+        }
     }
 }

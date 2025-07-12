@@ -49,34 +49,43 @@
   <ItemGroup>
     <Compile Include="DonViHSD.cs" />
     <Compile Include="Globals.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="GUI_BaoCaoThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="GUI_BaoCaoThongKe.Designer.cs">
+      <DependentUpon>GUI_BaoCaoThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_QuanLyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_QuanLyNhanVien.Designer.cs">
+      <DependentUpon>GUI_QuanLyNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_Login.Designer.cs">
+      <DependentUpon>GUI_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_MainForm.Designer.cs">
+      <DependentUpon>GUI_MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyKho.cs">
+    <Compile Include="GUI_QuanLyKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyKho.Designer.cs">
-      <DependentUpon>QuanLyKho.cs</DependentUpon>
+    <Compile Include="GUI_QuanLyKho.Designer.cs">
+      <DependentUpon>GUI_QuanLyKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="Quản lý nhân viên.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Quản lý nhân viên.Designer.cs">
-      <DependentUpon>Quản lý nhân viên.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="GUI_Login.resx">
+      <DependentUpon>GUI_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_MainForm.resx">
+      <DependentUpon>GUI_MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,11 +96,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QuanLyKho.resx">
-      <DependentUpon>QuanLyKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
+    <EmbeddedResource Include="GUI_QuanLyKho.resx">
+      <DependentUpon>GUI_QuanLyKho.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

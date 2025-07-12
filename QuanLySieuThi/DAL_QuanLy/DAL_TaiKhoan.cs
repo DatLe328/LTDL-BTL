@@ -34,5 +34,27 @@ namespace DAL_QuanLy
                 conn.Close();
             }
         }
+        public int GetMaNhanVienByTenDangNhap(string username)
+        {
+            try
+            {
+                conn.Open();
+                string query = "SELECT MaTaiKhoan FROM TaiKhoan WHERE TenDangNhap = @username";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@username", username);
+                
+                object result = cmd.ExecuteScalar();
+                return result != null ? Convert.ToInt32(result) : -1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

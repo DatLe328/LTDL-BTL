@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI_QuanLy
 {
-    public partial class Quản_lý_nhân_viên : Form
+    public partial class GUI_QuanLyNhanVien : Form
     {
-        public Quản_lý_nhân_viên()
+        public GUI_QuanLyNhanVien()
         {
             InitializeComponent();
         }

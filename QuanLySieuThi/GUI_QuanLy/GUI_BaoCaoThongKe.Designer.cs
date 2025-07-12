@@ -1,6 +1,6 @@
 ﻿namespace GUI_QuanLy
 {
-    partial class Quản_lý_nhân_viên
+    partial class GUI_BaoCaoThongKe
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Quản_lý_nhân_viên";
+            this.Text = "GUI_BaoCaoThongKe";
         }
 
         #endregion
