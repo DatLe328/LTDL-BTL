@@ -39,9 +39,9 @@ drop table LoaiHangHoa
 drop table HangHoa
 -- Bảng hàng hóa
 CREATE TABLE HangHoa (
-    MaHangHoa VARCHAR(20) PRIMARY KEY,
+    MaHangHoa int PRIMARY KEY IDENTITY,
     TenHangHoa VARCHAR(100),
-    GiaBan DECIMAL(15,2),
+    GiaBan int,
     DonViTinh VARCHAR(50),
     MaLoaiHangHoa NVARCHAR(20),
     FOREIGN KEY (MaLoaiHangHoa) REFERENCES LoaiHangHoa(MaLoaiHangHoa)
@@ -49,8 +49,10 @@ CREATE TABLE HangHoa (
 
 insert into LoaiHangHoa 
 values(2, N'Bánh')
-insert into HangHoa
-values(1, N'sting', 10, 'Chai', 1)
+insert into HangHoa(TenHangHoa, GiaBan, DonViTinh, MaLoaiHangHoa)
+values(N'sting', 10, 'Chai', 1)
+insert into HangHoa(TenHangHoa, GiaBan, DonViTinh, MaLoaiHangHoa)
+values(N'7up', 7, 'Chai', 2)
 -- Chi tiết hóa đơn mua
 CREATE TABLE ChiTietDonMua (
     MaPhieuNhap VARCHAR(20),

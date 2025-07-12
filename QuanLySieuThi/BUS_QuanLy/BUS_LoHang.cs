@@ -20,9 +20,29 @@ namespace BUS_QuanLy
         {
             return dalLoHang.GetLoHang();
         }
+        public DataTable GetLoHang(int maKho)
+        {
+            return dalLoHang.GetLoHang();
+        }
         public bool AddLoHang(DTO_LoHang newLoHang)
         {
             return dalLoHang.AddLoHang(newLoHang);
+        }
+        public bool AddLoHang(List<DTO_LoHang> newLoHangs)
+        {
+            bool result = true;
+            foreach (var loHang in newLoHangs)
+            {
+                if (!dalLoHang.AddLoHang(loHang))
+                {
+                    result = false;
+                }
+            }
+            return result;
+        }
+        public bool UpdateLoHang(DTO_LoHang loHang)
+        {
+            return dalLoHang.UpdateLoHang(loHang);
         }
     }
 }

@@ -83,7 +83,7 @@ namespace DAL_QuanLy
                 return false;
             }
         }
-        public DataTable GetHangHoa(string maHangHoa = "", string tenHangHoa = "")
+        public DataTable GetHangHoa(int maHangHoa = -1, string tenHangHoa = "")
         {
             DataTable dt = new DataTable();
             try
@@ -91,7 +91,7 @@ namespace DAL_QuanLy
                 string query = "SELECT * FROM HangHoa WHERE 1=1";
                 using (var cmd = new SqlCommand())
                 {
-                    if (!string.IsNullOrEmpty(maHangHoa))
+                    if (maHangHoa != -1)
                     {
                         query += " AND MaHangHoa = @MaHang";
                         cmd.Parameters.AddWithValue("@MaHang", maHangHoa);
@@ -101,7 +101,6 @@ namespace DAL_QuanLy
                         query += " AND TenHangHoa LIKE @TenHang";
                         cmd.Parameters.AddWithValue("@TenHang", "%" + tenHangHoa + "%");
                     }
-                    Console.WriteLine(query);
                     cmd.Connection = conn;
                     cmd.CommandText = query;
 

@@ -17,6 +17,7 @@ namespace GUI_QuanLy
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new QuanLyKho());
+            Globals.MaNhanVien = 1; // Set default value for MaNhanVien
         }
     }
 }

@@ -25,7 +25,7 @@ namespace DTO_QuanLy
             SoLuong = 0;
             MaHoaDonMua = 0;
         }
-        public DTO_LoHang(int maLoHang,DateTime ngaySanXuat, DateTime ngayHetHan, int soLuong, int soLuongTonKho, int donGia, int maNCC, int maSanPham, int maKho)
+        public DTO_LoHang(int maLoHang,DateTime ngaySanXuat, DateTime ngayHetHan, int soLuong, int soLuongTonKho, int donGia, int maNCC, int maSanPham, int maKho = -1)
         {
             this.MaLoHang = maLoHang;
             this.NgaySanXuat = ngaySanXuat;

@@ -14,6 +14,8 @@ namespace DTO_QuanLy
         private string donViTinh;
         private int soLuong;
         private int giaBan;
+        private int hanSuDungTieuChuan;
+        private string donViHanSuDung;
         public DTO_HangHoa()
         {
             MaHangHoa = 0;
@@ -21,15 +23,17 @@ namespace DTO_QuanLy
             DonViTinh = "";
             SoLuong = 0;
             GiaBan = 0;
+
         }
-        public DTO_HangHoa(int maHangHoa, int maLoaiHangHoa, string tenHangHoa, string donViTinh, int soLuong, int donGia)
+        public DTO_HangHoa(int maHangHoa, int maLoaiHangHoa, string tenHangHoa, string donViTinh, int soLuong, int giaBan, int hanSuDungTieuChuan, string donViHanSuDung)
         {
             this.MaHangHoa = maHangHoa;
             this.TenHangHoa = tenHangHoa;
             this.DonViTinh = donViTinh;
             this.SoLuong = soLuong;
-            this.GiaBan = donGia;
+            this.GiaBan = giaBan;
             this.MaLoaiHangHoa = maLoaiHangHoa;
+            this.DonViHanSuDung = donViHanSuDung;
         }
         public int MaHangHoa { get => maHangHoa; set => maHangHoa = value; }
         public string TenHangHoa { get => tenHangHoa; set => tenHangHoa = value; }
@@ -37,5 +41,7 @@ namespace DTO_QuanLy
         public int SoLuong { get => soLuong; set => soLuong = value; }
         public int GiaBan { get => giaBan; set => giaBan = value; }
         public int MaLoaiHangHoa { get => maLoaiHangHoa; set => maLoaiHangHoa = value; }
+        public int HanSuDungTieuChuan { get => hanSuDungTieuChuan; set => hanSuDungTieuChuan = value; }
+        public string DonViHanSuDung { get => donViHanSuDung; set => donViHanSuDung = value; }
     }
 }
