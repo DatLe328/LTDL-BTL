@@ -27,7 +27,7 @@ namespace DAL_QuanLy
             Console.WriteLine(dict["DB_SERVER"]);
             Console.WriteLine(dict["DB_DATABASE"]);
             // fallback
-            string server = dict.ContainsKey("DB_SERVER") ? dict["DB_SERVER"] : "(localdb)\\localhost";
+            string server = dict.ContainsKey("DB_SERVER") ? dict["DB_SERVER"] : "(localdb)\\localDB1";
             string database = dict.ContainsKey("DB_DATABASE") ? dict["DB_DATABASE"] : "QLST";
             string user = dict.ContainsKey("DB_USER") ? dict["DB_USER"] : null;
             string pass = dict.ContainsKey("DB_PASS") ? dict["DB_PASS"] : null;

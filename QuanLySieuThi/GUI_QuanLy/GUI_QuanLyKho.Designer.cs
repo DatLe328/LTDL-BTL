@@ -74,7 +74,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chartThongke = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.btnTimKiemHoaDonMua = new System.Windows.Forms.Button();
+            this.btnResetHoaDonMua = new System.Windows.Forms.Button();
             this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.dgvHoaDonMua = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -97,6 +97,7 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnTimKiem = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPageHangHoa.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -538,7 +539,8 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.btnTimKiemHoaDonMua);
+            this.groupBox7.Controls.Add(this.btnTimKiem);
+            this.groupBox7.Controls.Add(this.btnResetHoaDonMua);
             this.groupBox7.Controls.Add(this.dtpNgayNhap);
             this.groupBox7.Controls.Add(this.dgvHoaDonMua);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -548,30 +550,30 @@
             this.groupBox7.TabIndex = 11;
             this.groupBox7.TabStop = false;
             // 
-            // btnTimKiemHoaDonMua
+            // btnResetHoaDonMua
             // 
-            this.btnTimKiemHoaDonMua.Location = new System.Drawing.Point(408, 60);
-            this.btnTimKiemHoaDonMua.Name = "btnTimKiemHoaDonMua";
-            this.btnTimKiemHoaDonMua.Size = new System.Drawing.Size(174, 40);
-            this.btnTimKiemHoaDonMua.TabIndex = 3;
-            this.btnTimKiemHoaDonMua.Text = "Tìm kiếm";
-            this.btnTimKiemHoaDonMua.UseVisualStyleBackColor = true;
-            this.btnTimKiemHoaDonMua.Click += new System.EventHandler(this.btnTimKiemHoaDonMua_Click);
+            this.btnResetHoaDonMua.Location = new System.Drawing.Point(471, 59);
+            this.btnResetHoaDonMua.Name = "btnResetHoaDonMua";
+            this.btnResetHoaDonMua.Size = new System.Drawing.Size(111, 40);
+            this.btnResetHoaDonMua.TabIndex = 3;
+            this.btnResetHoaDonMua.Text = "Reset";
+            this.btnResetHoaDonMua.UseVisualStyleBackColor = true;
+            this.btnResetHoaDonMua.Click += new System.EventHandler(this.btnResetHoaDonMua_Click);
             // 
             // dtpNgayNhap
             // 
             this.dtpNgayNhap.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhap.Location = new System.Drawing.Point(22, 61);
+            this.dtpNgayNhap.Location = new System.Drawing.Point(44, 60);
             this.dtpNgayNhap.Name = "dtpNgayNhap";
-            this.dtpNgayNhap.Size = new System.Drawing.Size(380, 35);
+            this.dtpNgayNhap.Size = new System.Drawing.Size(241, 35);
             this.dtpNgayNhap.TabIndex = 2;
             this.dtpNgayNhap.Value = new System.DateTime(2025, 7, 10, 0, 0, 0, 0);
             // 
             // dgvHoaDonMua
             // 
             this.dgvHoaDonMua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHoaDonMua.Location = new System.Drawing.Point(53, 107);
+            this.dgvHoaDonMua.Location = new System.Drawing.Point(44, 107);
             this.dgvHoaDonMua.Name = "dgvHoaDonMua";
             this.dgvHoaDonMua.Size = new System.Drawing.Size(538, 390);
             this.dgvHoaDonMua.TabIndex = 0;
@@ -747,14 +749,24 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
-            // QuanLyKho
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Location = new System.Drawing.Point(291, 59);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(174, 40);
+            this.btnTimKiem.TabIndex = 4;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiemHoaDonMua_Click);
+            // 
+            // GUI_QuanLyKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 748);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "QuanLyKho";
+            this.Name = "GUI_QuanLyKho";
             this.Text = "QuanLyKho";
             this.Load += new System.EventHandler(this.QuanLyKho_Load);
             this.tabControl.ResumeLayout(false);
@@ -853,11 +865,12 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button btnTimKiemHoaDonMua;
+        private System.Windows.Forms.Button btnResetHoaDonMua;
         private System.Windows.Forms.DateTimePicker dtpNgayNhap;
         private System.Windows.Forms.DataGridView dgvHoaDonMua;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartThongke;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnTimKiem;
     }
 }
