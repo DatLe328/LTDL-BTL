@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_ChiPhi.cs" />
     <Compile Include="DAL_HangHoa.cs" />
     <Compile Include="DAL_HoaDonMua.cs" />
     <Compile Include="DAL_LoaiHangHoa.cs" />

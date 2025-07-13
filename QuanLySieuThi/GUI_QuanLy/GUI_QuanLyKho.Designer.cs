@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageHangHoa = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -522,16 +522,16 @@
             // 
             // chartThongke
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartThongke.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartThongke.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chartThongke.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartThongke.Legends.Add(legend1);
             this.chartThongke.Location = new System.Drawing.Point(25, 21);
             this.chartThongke.Name = "chartThongke";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartThongke.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartThongke.Series.Add(series1);
             this.chartThongke.Size = new System.Drawing.Size(535, 498);
             this.chartThongke.TabIndex = 12;
             this.chartThongke.Text = "chart1";
@@ -747,14 +747,14 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
-            // QuanLyKho
+            // GUI_QuanLyKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 748);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "QuanLyKho";
+            this.Name = "GUI_QuanLyKho";
             this.Text = "QuanLyKho";
             this.Load += new System.EventHandler(this.QuanLyKho_Load);
             this.tabControl.ResumeLayout(false);

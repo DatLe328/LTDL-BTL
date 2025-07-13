@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -55,6 +55,12 @@
     <Compile Include="GUI_BaoCaoThongKe.Designer.cs">
       <DependentUpon>GUI_BaoCaoThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI_ChiPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_ChiPhi.Designer.cs">
+      <DependentUpon>GUI_ChiPhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI_QuanLyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     <Compile Include="GUI_QuanLyKho.Designer.cs">
       <DependentUpon>GUI_QuanLyKho.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI_BaoCaoThongKe.resx">
+      <DependentUpon>GUI_BaoCaoThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_ChiPhi.resx">
+      <DependentUpon>GUI_ChiPhi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_Login.resx">
       <DependentUpon>GUI_Login.cs</DependentUpon>
     </EmbeddedResource>
