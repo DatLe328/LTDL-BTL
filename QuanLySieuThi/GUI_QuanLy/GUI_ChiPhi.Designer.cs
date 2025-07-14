@@ -46,6 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtTenChiPhi = new System.Windows.Forms.TextBox();
             this.btnResetChiPhi = new System.Windows.Forms.Button();
+
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiPhi)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -54,6 +55,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnResetChiPhi);
+
             this.groupBox1.Controls.Add(this.dtpTimKiemChiPhi);
             this.groupBox1.Controls.Add(this.btnTimKiemChiPhi);
             this.groupBox1.Controls.Add(this.label5);
@@ -89,6 +91,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(21, 61);
+
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 29);
             this.label5.TabIndex = 2;

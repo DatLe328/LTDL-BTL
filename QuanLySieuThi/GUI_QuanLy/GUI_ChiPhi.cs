@@ -37,8 +37,6 @@ namespace GUI_QuanLy
             }
             this.dgvChiPhi.Click += new System.EventHandler(this.dgvChiPhi_Click);
             this.btnResetChiPhi.Click += new System.EventHandler(this.btnResetChiPhi_Click);
-
-
         }
         private void dgvChiPhi_Click(object sender, EventArgs e)
         {
@@ -152,6 +150,5 @@ namespace GUI_QuanLy
             dtpNgayLap.Value = DateTime.Now;
             LoadChiPhi();
         }
-
     }
 }

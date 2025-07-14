@@ -16,12 +16,20 @@ namespace GUI_QuanLy
         public GUI_Login()
         {
             InitializeComponent();
+<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_Login.cs
+=======
+            // Style cho nút Đăng nhập
+>>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/Login.cs
             btnDangNhap.BackColor = Color.MediumSlateBlue;
             btnDangNhap.ForeColor = Color.White;
             btnDangNhap.FlatStyle = FlatStyle.Flat;
             btnDangNhap.FlatAppearance.BorderSize = 0;
             btnDangNhap.Font = new Font("Segoe UI", 10, FontStyle.Bold);
 
+<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_Login.cs
+=======
+            // Style cho textbox
+>>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/Login.cs
             txtTenDangNhap.BorderStyle = BorderStyle.FixedSingle;
             txtMatKhau.BorderStyle = BorderStyle.FixedSingle;
         }
@@ -49,6 +57,10 @@ namespace GUI_QuanLy
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtTenDangNhap_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

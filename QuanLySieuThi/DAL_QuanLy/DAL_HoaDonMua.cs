@@ -10,6 +10,7 @@ namespace DAL_QuanLy
 {
     public class DAL_HoaDonMua : DBConnect
     {
+<<<<<<< HEAD
         public bool AddHoaDonMua(DTO_QuanLy.DTO_HoaDonMua newHoaDonMua)
         {
             try
@@ -83,6 +84,8 @@ namespace DAL_QuanLy
                 conn.Close();
             }
         }
+=======
+>>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9
         public DataTable GetHoaDonMua()
         {
             try
@@ -104,7 +107,11 @@ namespace DAL_QuanLy
             try
             {
                 DataTable dt = new DataTable();
+<<<<<<< HEAD
                 string query = "SELECT * FROM HoaDonMua WHERE CAST(NgayLap AS DATE) = @NgayNhap";
+=======
+                string query = "SELECT * FROM HoaDonMua WHERE CAST(NgayNhap AS DATE) = @NgayNhap";
+>>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@NgayNhap", ngayNhap.Date);
 
@@ -118,5 +125,11 @@ namespace DAL_QuanLy
                 return null;
             }
         }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9
     }
 }
