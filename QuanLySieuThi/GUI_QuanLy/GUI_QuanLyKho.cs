@@ -372,6 +372,7 @@ namespace GUI_QuanLy
             {
                 MessageBox.Show("Lỗi khi tải hóa đơn mua: " + ex.Message);
             }
+            this.btnResetHoaDonMua.Click += new System.EventHandler(this.btnResetHoaDonMua_Click);
             VeBieuDoThongKe();
         }
 
@@ -415,6 +416,13 @@ namespace GUI_QuanLy
 
             chartThongke.Series.Add(series);
         }
+        private void btnResetHoaDonMua_Click(object sender, EventArgs e)
+        {
+            dtpNgayNhap.Value = DateTime.Today;
+
+            LoadHoaDonMua();
+        }
+
 
         /*
          * Đặt hàng

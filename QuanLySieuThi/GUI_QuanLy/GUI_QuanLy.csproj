@@ -87,9 +87,6 @@
     <Compile Include="GUI_QuanLyKho.Designer.cs">
       <DependentUpon>GUI_QuanLyKho.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GUI_BaoCaoThongKe.resx">
-      <DependentUpon>GUI_BaoCaoThongKe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI_ChiPhi.resx">
       <DependentUpon>GUI_ChiPhi.cs</DependentUpon>
     </EmbeddedResource>

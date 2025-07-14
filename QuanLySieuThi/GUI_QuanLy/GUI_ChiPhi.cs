@@ -36,7 +36,7 @@ namespace GUI_QuanLy
                 MessageBox.Show("Lỗi khi tải danh sách chi phí: " + ex.Message);
             }
             this.dgvChiPhi.Click += new System.EventHandler(this.dgvChiPhi_Click);
-
+            this.btnResetChiPhi.Click += new System.EventHandler(this.btnResetChiPhi_Click);
         }
         private void dgvChiPhi_Click(object sender, EventArgs e)
         {
@@ -145,6 +145,10 @@ namespace GUI_QuanLy
                 MessageBox.Show("Không có chi phí nào cho ngày này.");
             }
         }
-
+        private void btnResetChiPhi_Click(object sender, EventArgs e)
+        {
+            dtpNgayLap.Value = DateTime.Now;
+            LoadChiPhi();
+        }
     }
 }

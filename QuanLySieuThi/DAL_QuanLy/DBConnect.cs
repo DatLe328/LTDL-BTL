@@ -13,7 +13,6 @@ namespace DAL_QuanLy
         protected SqlConnection conn;
         public DBConnect()
         {
-<<<<<<< HEAD
             string currentDir = Environment.CurrentDirectory;
             var lines = File.ReadAllLines(currentDir + "/../../../DAL_QuanLy/.env");
             var dict = new Dictionary<string, string>();
@@ -28,7 +27,7 @@ namespace DAL_QuanLy
             Console.WriteLine(dict["DB_SERVER"]);
             Console.WriteLine(dict["DB_DATABASE"]);
             // fallback
-            string server = dict.ContainsKey("DB_SERVER") ? dict["DB_SERVER"] : "localdb\\localDB1";
+            string server = dict.ContainsKey("DB_SERVER") ? dict["DB_SERVER"] : "(localdb)\\localDB1";
             string database = dict.ContainsKey("DB_DATABASE") ? dict["DB_DATABASE"] : "QLST";
             string user = dict.ContainsKey("DB_USER") ? dict["DB_USER"] : null;
             string pass = dict.ContainsKey("DB_PASS") ? dict["DB_PASS"] : null;
@@ -38,9 +37,6 @@ namespace DAL_QuanLy
                 : $"Server={server};Database={database};User Id={user};Password={pass};TrustServerCertificate=True;";
 
             conn = new SqlConnection(connStr);
-=======
-            conn = new SqlConnection("Server=(localdb)\\localDB1;Database=QLST;Integrated Security=True;TrustServerCertificate=True;");
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9
         }
     }
 }

@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             this.components = new System.ComponentModel.Container();
-=======
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageHangHoa = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,11 +57,7 @@
             this.txtTimKiemLoHang = new System.Windows.Forms.TextBox();
             this.dgvLoHang = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             this.label6 = new System.Windows.Forms.Label();
-=======
-            this.label5 = new System.Windows.Forms.Label();
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             this.txtMaKho = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtHSD = new System.Windows.Forms.TextBox();
@@ -72,11 +65,6 @@
             this.txtNXS = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSuaLoHang = new System.Windows.Forms.Button();
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
-=======
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDonGia = new System.Windows.Forms.TextBox();
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             this.label7 = new System.Windows.Forms.Label();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -84,17 +72,10 @@
             this.label19 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             this.chartThongke = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.btnTimKiemHoaDonMua = new System.Windows.Forms.Button();
+            this.btnResetHoaDonMua = new System.Windows.Forms.Button();
             this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
-=======
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.btnTimKiemHoaDonMua = new System.Windows.Forms.Button();
-            this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
-            this.txtTimKiemHoaDonMua = new System.Windows.Forms.TextBox();
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             this.dgvHoaDonMua = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnDatHang = new System.Windows.Forms.Button();
@@ -115,11 +96,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-=======
-            this.chartThongke = new System.Windows.Forms.DataVisualization.Charting.Chart();
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
+            this.btnTimKiem = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPageHangHoa.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -131,7 +109,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoHang)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.tabPage2.SuspendLayout();
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             ((System.ComponentModel.ISupportInitialize)(this.chartThongke)).BeginInit();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonMua)).BeginInit();
@@ -143,12 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHangHoa)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-=======
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonMua)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartThongke)).BeginInit();
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             this.SuspendLayout();
             // 
             // tabControl
@@ -215,7 +186,7 @@
             this.dgvHangHoa.Name = "dgvHangHoa";
             this.dgvHangHoa.Size = new System.Drawing.Size(537, 216);
             this.dgvHangHoa.TabIndex = 0;
-            this.dgvHangHoa.Click += new System.EventHandler(this.dgvLoHang_SelectionChanged);
+            this.dgvHangHoa.Click += new System.EventHandler(this.dgvHangHoa_Click);
             // 
             // groupBox2
             // 
@@ -383,10 +354,7 @@
             this.txtTimKiemLoHang.Name = "txtTimKiemLoHang";
             this.txtTimKiemLoHang.Size = new System.Drawing.Size(289, 35);
             this.txtTimKiemLoHang.TabIndex = 1;
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             this.txtTimKiemLoHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-=======
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             this.txtTimKiemLoHang.TextChanged += new System.EventHandler(this.txtTimKiemLoHang_TextChanged);
             // 
             // dgvLoHang
@@ -396,19 +364,11 @@
             this.dgvLoHang.Name = "dgvLoHang";
             this.dgvLoHang.Size = new System.Drawing.Size(564, 390);
             this.dgvLoHang.TabIndex = 0;
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             this.dgvLoHang.Click += new System.EventHandler(this.dgvLoHang_Click);
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.label6);
-=======
-            this.dgvLoHang.DpiChangedAfterParent += new System.EventHandler(this.dgvLoHang_Click);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label5);
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             this.groupBox6.Controls.Add(this.txtMaKho);
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.txtHSD);
@@ -416,11 +376,6 @@
             this.groupBox6.Controls.Add(this.txtNXS);
             this.groupBox6.Controls.Add(this.label9);
             this.groupBox6.Controls.Add(this.btnSuaLoHang);
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
-=======
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.txtDonGia);
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             this.groupBox6.Controls.Add(this.label7);
             this.groupBox6.Controls.Add(this.txtDonGia);
             this.groupBox6.Controls.Add(this.label8);
@@ -434,7 +389,6 @@
             this.groupBox6.TabIndex = 10;
             this.groupBox6.TabStop = false;
             // 
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             // label6
             // 
             this.label6.AutoSize = true;
@@ -443,16 +397,6 @@
             this.label6.Size = new System.Drawing.Size(95, 29);
             this.label6.TabIndex = 16;
             this.label6.Text = "Mã Kho";
-=======
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 29);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Mã Kho";
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             // 
             // txtMaKho
             // 
@@ -515,7 +459,6 @@
             this.btnSuaLoHang.UseVisualStyleBackColor = true;
             this.btnSuaLoHang.Click += new System.EventHandler(this.btnSuaLo_Click);
             // 
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             // label7
             // 
             this.label7.AutoSize = true;
@@ -523,15 +466,6 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 29);
             this.label7.TabIndex = 6;
-=======
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 204);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 29);
-            this.label6.TabIndex = 6;
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             // 
             // txtDonGia
             // 
@@ -577,10 +511,7 @@
             // 
             // tabPage2
             // 
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             this.tabPage2.BackColor = System.Drawing.Color.DodgerBlue;
-=======
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             this.tabPage2.Controls.Add(this.chartThongke);
             this.tabPage2.Controls.Add(this.groupBox7);
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
@@ -588,28 +519,28 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1304, 655);
             this.tabPage2.TabIndex = 2;
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             this.tabPage2.Text = "Hóa đơn mua";
             // 
             // chartThongke
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartThongke.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartThongke.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chartThongke.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartThongke.Legends.Add(legend2);
             this.chartThongke.Location = new System.Drawing.Point(25, 21);
             this.chartThongke.Name = "chartThongke";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartThongke.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartThongke.Series.Add(series2);
             this.chartThongke.Size = new System.Drawing.Size(535, 498);
             this.chartThongke.TabIndex = 12;
             this.chartThongke.Text = "chart1";
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.btnTimKiemHoaDonMua);
+            this.groupBox7.Controls.Add(this.btnTimKiem);
+            this.groupBox7.Controls.Add(this.btnResetHoaDonMua);
             this.groupBox7.Controls.Add(this.dtpNgayNhap);
             this.groupBox7.Controls.Add(this.dgvHoaDonMua);
             this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -619,83 +550,30 @@
             this.groupBox7.TabIndex = 11;
             this.groupBox7.TabStop = false;
             // 
-            // btnTimKiemHoaDonMua
+            // btnResetHoaDonMua
             // 
-            this.btnTimKiemHoaDonMua.Location = new System.Drawing.Point(408, 60);
-            this.btnTimKiemHoaDonMua.Name = "btnTimKiemHoaDonMua";
-            this.btnTimKiemHoaDonMua.Size = new System.Drawing.Size(174, 40);
-            this.btnTimKiemHoaDonMua.TabIndex = 3;
-            this.btnTimKiemHoaDonMua.Text = "Tìm kiếm";
-            this.btnTimKiemHoaDonMua.UseVisualStyleBackColor = true;
-            this.btnTimKiemHoaDonMua.Click += new System.EventHandler(this.btnTimKiemHoaDonMua_Click);
+            this.btnResetHoaDonMua.Location = new System.Drawing.Point(471, 59);
+            this.btnResetHoaDonMua.Name = "btnResetHoaDonMua";
+            this.btnResetHoaDonMua.Size = new System.Drawing.Size(111, 40);
+            this.btnResetHoaDonMua.TabIndex = 3;
+            this.btnResetHoaDonMua.Text = "Reset";
+            this.btnResetHoaDonMua.UseVisualStyleBackColor = true;
+            this.btnResetHoaDonMua.Click += new System.EventHandler(this.btnResetHoaDonMua_Click);
             // 
             // dtpNgayNhap
             // 
             this.dtpNgayNhap.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhap.Location = new System.Drawing.Point(22, 61);
+            this.dtpNgayNhap.Location = new System.Drawing.Point(44, 60);
             this.dtpNgayNhap.Name = "dtpNgayNhap";
-            this.dtpNgayNhap.Size = new System.Drawing.Size(380, 35);
+            this.dtpNgayNhap.Size = new System.Drawing.Size(241, 35);
             this.dtpNgayNhap.TabIndex = 2;
             this.dtpNgayNhap.Value = new System.DateTime(2025, 7, 10, 0, 0, 0, 0);
             // 
             // dgvHoaDonMua
             // 
             this.dgvHoaDonMua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHoaDonMua.Location = new System.Drawing.Point(53, 107);
-            this.dgvHoaDonMua.Name = "dgvHoaDonMua";
-            this.dgvHoaDonMua.Size = new System.Drawing.Size(538, 390);
-            this.dgvHoaDonMua.TabIndex = 0;
-=======
-            this.tabPage2.Text = "Hoá Đơn Mua";
-            this.tabPage2.UseVisualStyleBackColor = true;
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.btnTimKiemHoaDonMua);
-            this.groupBox7.Controls.Add(this.dtpNgayNhap);
-            this.groupBox7.Controls.Add(this.txtTimKiemHoaDonMua);
-            this.groupBox7.Controls.Add(this.dgvHoaDonMua);
-            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(579, 6);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(645, 550);
-            this.groupBox7.TabIndex = 10;
-            this.groupBox7.TabStop = false;
-            // 
-            // btnTimKiemHoaDonMua
-            // 
-            this.btnTimKiemHoaDonMua.Location = new System.Drawing.Point(417, 61);
-            this.btnTimKiemHoaDonMua.Name = "btnTimKiemHoaDonMua";
-            this.btnTimKiemHoaDonMua.Size = new System.Drawing.Size(174, 40);
-            this.btnTimKiemHoaDonMua.TabIndex = 3;
-            this.btnTimKiemHoaDonMua.Text = "Tìm kiếm";
-            this.btnTimKiemHoaDonMua.UseVisualStyleBackColor = true;
-            this.btnTimKiemHoaDonMua.Click += new System.EventHandler(this.btnTimKiemHoaDonMua_Click);
-            // 
-            // dtpNgayNhap
-            // 
-            this.dtpNgayNhap.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhap.Location = new System.Drawing.Point(17, 25);
-            this.dtpNgayNhap.Name = "dtpNgayNhap";
-            this.dtpNgayNhap.Size = new System.Drawing.Size(380, 35);
-            this.dtpNgayNhap.TabIndex = 2;
-            this.dtpNgayNhap.Value = new System.DateTime(2025, 7, 10, 0, 0, 0, 0);
-            // 
-            // txtTimKiemHoaDonMua
-            // 
-            this.txtTimKiemHoaDonMua.Location = new System.Drawing.Point(17, 66);
-            this.txtTimKiemHoaDonMua.Name = "txtTimKiemHoaDonMua";
-            this.txtTimKiemHoaDonMua.Size = new System.Drawing.Size(380, 35);
-            this.txtTimKiemHoaDonMua.TabIndex = 1;
-            this.txtTimKiemHoaDonMua.TextChanged += new System.EventHandler(this.txtTimKiemHoaDonMua_TextChanged);
-            // 
-            // dgvHoaDonMua
-            // 
-            this.dgvHoaDonMua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHoaDonMua.Location = new System.Drawing.Point(53, 107);
+            this.dgvHoaDonMua.Location = new System.Drawing.Point(44, 107);
             this.dgvHoaDonMua.Name = "dgvHoaDonMua";
             this.dgvHoaDonMua.Size = new System.Drawing.Size(538, 390);
             this.dgvHoaDonMua.TabIndex = 0;
@@ -871,27 +749,17 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Location = new System.Drawing.Point(291, 59);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(174, 40);
+            this.btnTimKiem.TabIndex = 4;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiemHoaDonMua_Click);
+            // 
             // GUI_QuanLyKho
-=======
-            // chartThongke
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chartThongke.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartThongke.Legends.Add(legend1);
-            this.chartThongke.Location = new System.Drawing.Point(6, 67);
-            this.chartThongke.Name = "chartThongke";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartThongke.Series.Add(series1);
-            this.chartThongke.Size = new System.Drawing.Size(557, 423);
-            this.chartThongke.TabIndex = 11;
-            this.chartThongke.Text = "chart1";
-            // 
-            // QuanLyKho
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -917,7 +785,6 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
             ((System.ComponentModel.ISupportInitialize)(this.chartThongke)).EndInit();
             this.groupBox7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonMua)).EndInit();
@@ -933,14 +800,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-=======
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonMua)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartThongke)).EndInit();
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -991,10 +850,6 @@
         private System.Windows.Forms.TextBox txtTimKiemLoHang;
         private System.Windows.Forms.DataGridView dgvLoHang;
         private System.Windows.Forms.GroupBox groupBox6;
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
-=======
-        private System.Windows.Forms.Button btnSuaLoHang;
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox txtMaKho;
         private System.Windows.Forms.Label label11;
@@ -1002,7 +857,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNXS;
         private System.Windows.Forms.Label label9;
-<<<<<<< HEAD:QuanLySieuThi/GUI_QuanLy/GUI_QuanLyKho.Designer.cs
         private System.Windows.Forms.Button btnSuaLoHang;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDonGia;
@@ -1011,21 +865,12 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button btnTimKiemHoaDonMua;
+        private System.Windows.Forms.Button btnResetHoaDonMua;
         private System.Windows.Forms.DateTimePicker dtpNgayNhap;
         private System.Windows.Forms.DataGridView dgvHoaDonMua;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartThongke;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label12;
-=======
-        private System.Windows.Forms.ComboBox txtMaKho;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TextBox txtTimKiemHoaDonMua;
-        private System.Windows.Forms.DataGridView dgvHoaDonMua;
-        private System.Windows.Forms.Button btnTimKiemHoaDonMua;
-        private System.Windows.Forms.DateTimePicker dtpNgayNhap;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartThongke;
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9:QuanLySieuThi/GUI_QuanLy/QuanLyKho.Designer.cs
+        private System.Windows.Forms.Button btnTimKiem;
     }
 }

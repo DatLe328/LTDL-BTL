@@ -32,9 +32,9 @@ namespace BUS_QuanLy
             return dalChiPhi.GetChiPhi();
         }
 
-        public DataTable GetChiPhiByDate(DateTime ngayChi)
+        public DataTable GetChiPhiByDate(DateTime ngayLap)
         {
-            return dalChiPhi.GetChiPhiByDate(ngayChi);
+            return dalChiPhi.GetChiPhiByDate(ngayLap);
         }
     }
 }

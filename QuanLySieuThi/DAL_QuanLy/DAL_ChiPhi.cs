@@ -125,5 +125,22 @@ namespace DAL_QuanLy
                 return null;
             }
         }
+        public DataTable GetThongKeChiPhiTheoThang()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT FORMAT(NgayLap, 'yyyy-MM') AS Thang, SUM(SoTien) AS TongTien FROM ChiPhi GROUP BY FORMAT(NgayLap, 'yyyy-MM') ORDER BY Thang";
+                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi thống kê: " + ex.Message);
+                return null;
+            }
+        }
+
     }
 }

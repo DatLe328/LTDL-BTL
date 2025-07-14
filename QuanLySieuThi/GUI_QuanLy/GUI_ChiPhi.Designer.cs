@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpTimKiemChiPhi = new System.Windows.Forms.DateTimePicker();
+            this.btnTimKiemChiPhi = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvChiPhi = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -43,8 +45,8 @@
             this.txtSoTien = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTenChiPhi = new System.Windows.Forms.TextBox();
-            this.btnTimKiemChiPhi = new System.Windows.Forms.Button();
-            this.dtpTimKiemChiPhi = new System.Windows.Forms.DateTimePicker();
+            this.btnResetChiPhi = new System.Windows.Forms.Button();
+
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiPhi)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -52,21 +54,44 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnResetChiPhi);
+
             this.groupBox1.Controls.Add(this.dtpTimKiemChiPhi);
             this.groupBox1.Controls.Add(this.btnTimKiemChiPhi);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.dgvChiPhi);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(553, 12);
+            this.groupBox1.Location = new System.Drawing.Point(554, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(733, 465);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
+            // 
+            // dtpTimKiemChiPhi
+            // 
+            this.dtpTimKiemChiPhi.CustomFormat = "dd/MM/yyyy";
+            this.dtpTimKiemChiPhi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTimKiemChiPhi.Location = new System.Drawing.Point(140, 56);
+            this.dtpTimKiemChiPhi.Name = "dtpTimKiemChiPhi";
+            this.dtpTimKiemChiPhi.Size = new System.Drawing.Size(289, 35);
+            this.dtpTimKiemChiPhi.TabIndex = 14;
+            this.dtpTimKiemChiPhi.Value = new System.DateTime(2025, 7, 10, 0, 0, 0, 0);
+            // 
+            // btnTimKiemChiPhi
+            // 
+            this.btnTimKiemChiPhi.Location = new System.Drawing.Point(435, 54);
+            this.btnTimKiemChiPhi.Name = "btnTimKiemChiPhi";
+            this.btnTimKiemChiPhi.Size = new System.Drawing.Size(164, 37);
+            this.btnTimKiemChiPhi.TabIndex = 14;
+            this.btnTimKiemChiPhi.Text = "Tìm kiếm";
+            this.btnTimKiemChiPhi.UseVisualStyleBackColor = true;
+            this.btnTimKiemChiPhi.Click += new System.EventHandler(this.btnTimKiemChiPhi_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(67, 59);
+            this.label5.Location = new System.Drawing.Point(21, 61);
+
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 29);
             this.label5.TabIndex = 2;
@@ -77,7 +102,7 @@
             this.dgvChiPhi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChiPhi.Location = new System.Drawing.Point(26, 107);
             this.dgvChiPhi.Name = "dgvChiPhi";
-            this.dgvChiPhi.Size = new System.Drawing.Size(684, 252);
+            this.dgvChiPhi.Size = new System.Drawing.Size(689, 252);
             this.dgvChiPhi.TabIndex = 0;
             // 
             // groupBox3
@@ -94,10 +119,10 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtTenChiPhi);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(7, 12);
+            this.groupBox3.Location = new System.Drawing.Point(8, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(540, 465);
-            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             // 
             // dtpNgayLap
@@ -200,32 +225,21 @@
             this.txtTenChiPhi.TabIndex = 3;
             this.txtTenChiPhi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnTimKiemChiPhi
+            // btnResetChiPhi
             // 
-            this.btnTimKiemChiPhi.Location = new System.Drawing.Point(507, 54);
-            this.btnTimKiemChiPhi.Name = "btnTimKiemChiPhi";
-            this.btnTimKiemChiPhi.Size = new System.Drawing.Size(164, 37);
-            this.btnTimKiemChiPhi.TabIndex = 14;
-            this.btnTimKiemChiPhi.Text = "Tìm kiếm";
-            this.btnTimKiemChiPhi.UseVisualStyleBackColor = true;
-            this.btnTimKiemChiPhi.Click += new System.EventHandler(this.btnTimKiemChiPhi_Click);
-            // 
-            // dtpTimKiemChiPhi
-            // 
-            this.dtpTimKiemChiPhi.CustomFormat = "dd/MM/yyyy";
-            this.dtpTimKiemChiPhi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTimKiemChiPhi.Location = new System.Drawing.Point(202, 56);
-            this.dtpTimKiemChiPhi.Name = "dtpTimKiemChiPhi";
-            this.dtpTimKiemChiPhi.Size = new System.Drawing.Size(289, 35);
-            this.dtpTimKiemChiPhi.TabIndex = 14;
-            this.dtpTimKiemChiPhi.Value = new System.DateTime(2025, 7, 10, 0, 0, 0, 0);
+            this.btnResetChiPhi.Location = new System.Drawing.Point(605, 53);
+            this.btnResetChiPhi.Name = "btnResetChiPhi";
+            this.btnResetChiPhi.Size = new System.Drawing.Size(110, 37);
+            this.btnResetChiPhi.TabIndex = 15;
+            this.btnResetChiPhi.Text = "Reset";
+            this.btnResetChiPhi.UseVisualStyleBackColor = true;
             // 
             // GUI_ChiPhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(1295, 498);
+            this.ClientSize = new System.Drawing.Size(1283, 512);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Name = "GUI_ChiPhi";
@@ -242,9 +256,15 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker dtpTimKiemChiPhi;
+        private System.Windows.Forms.Button btnTimKiemChiPhi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvChiPhi;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DateTimePicker dtpNgayLap;
+        private System.Windows.Forms.TextBox txtMoTa;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnXoaChiPhi;
         private System.Windows.Forms.Button btnSuaChiPhi;
         private System.Windows.Forms.Button btnThemChiPhi;
@@ -252,11 +272,6 @@
         private System.Windows.Forms.TextBox txtSoTien;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTenChiPhi;
-        private System.Windows.Forms.TextBox txtMoTa;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtpNgayLap;
-        private System.Windows.Forms.Button btnTimKiemChiPhi;
-        private System.Windows.Forms.DateTimePicker dtpTimKiemChiPhi;
+        private System.Windows.Forms.Button btnResetChiPhi;
     }
 }

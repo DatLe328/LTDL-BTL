@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,7 @@ namespace GUI_QuanLy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
-            Application.Run(new GUI_QuanLyKho());
-=======
-            Application.Run(new Login());
->>>>>>> d5d342419bc507a45661d7dd19d37b585cc2ebd9
+            Application.Run(new GUI_ChiPhi());
         }
     }
 }
