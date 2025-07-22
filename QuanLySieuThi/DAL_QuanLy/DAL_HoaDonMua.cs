@@ -118,5 +118,49 @@ namespace DAL_QuanLy
                 return null;
             }
         }
+
+
+        /*Bao cao thong ke*/
+        // 1. Thống kê tổng tiền theo ngày
+        public DataTable GetTongTienTheoNgay()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string query = "SELECT NgayLap, SUM(TongTien) AS TongTien FROM HoaDonMua GROUP BY NgayLap ORDER BY NgayLap";
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi thống kê theo ngày: " + ex.Message);
+                return null;
+            }
+        }
+
+
+        // 2. Thống kê tổng tiền theo tháng
+        public DataTable GetTongTienTheoThang()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string query = @"
+            SELECT MONTH(NgayLap) AS Thang, SUM(TongTien) AS TongTien
+            FROM HoaDonMua
+            GROUP BY MONTH(NgayLap)
+            ORDER BY Thang";
+
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thống kê theo tháng: " + ex.Message);
+                return null;
+            }
+        }
     }
 }

@@ -22,5 +22,21 @@ namespace BUS_QuanLy
         {
             return dAL_TaiKhoan.GetMaNhanVienByTenDangNhap(tenDangNhap);
         }
+        public bool AddTaiKhoan(string tenDangNhap = "", string matKhau = "123456", int maNhanVien = 0)
+        {
+            return dAL_TaiKhoan.AddTaiKhoan(tenDangNhap, matKhau, maNhanVien);
+        }
+        public bool UpdateTaiKhoan(int maTaiKhoan, string tenDangNhap = "", string matKhau = "123456", int maNhanVien = 0)
+        {
+            return dAL_TaiKhoan.UpdateTaiKhoan(maTaiKhoan, tenDangNhap, matKhau, maNhanVien);
+        }
+        public bool DeleteTaiKhoanByUserName(int tenDanhNhap)
+        {
+            return dAL_TaiKhoan.DeleteTaiKhoanByUserName(tenDanhNhap);
+        }
+        public bool CheckUsernameExists(string username)
+        {
+            return dAL_TaiKhoan.CheckUsernameExists(username);
+        }
     }
 }

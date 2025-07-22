@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI_QuanLy
 {
@@ -38,16 +39,36 @@ namespace GUI_QuanLy
             if (busTaiKhoan.Authenticate(tenDangNhap, matKhau))
             {
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Globals.TenDangNhap = tenDangNhap;
+                Globals.MaNhanVien = busTaiKhoan.GetMaNhanVienByTenDangNhap(tenDangNhap);
+                Console.WriteLine("DEBUG (GUI_Login): MaNhanVien = " + Globals.MaNhanVien);
+                Console.WriteLine("DEBUG (GUI_Login): TenDangNhap = " + Globals.TenDangNhap);
                 // Mở form chính của ứng dụng
                 Form mainForm = new GUI_MainForm();
                 mainForm.Show();
-                Globals.TenDangNhap = tenDangNhap;
-                Globals.MaNhanVien = busTaiKhoan.GetMaNhanVienByTenDangNhap(tenDangNhap);
                 this.Hide();
             }
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtTenDangNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btnDangNhap.PerformClick();
+            }
+        }
+
+        private void txtMatKhau_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btnDangNhap.PerformClick();
             }
         }
     }

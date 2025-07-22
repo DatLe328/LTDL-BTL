@@ -35,5 +35,18 @@ namespace BUS_QuanLy
         {
             return dalHoaDonMua.GetHoaDonMuaByDate(ngayNhap);
         }
+
+        /*Bao cao thong ke*/
+        // Thống kê tổng tiền theo ngày
+        public DataTable GetTongTienTheoNgay()
+        {
+            return dalHoaDonMua.GetTongTienTheoNgay();
+        }
+
+        // Thống kê tổng tiền theo tháng
+        public DataTable GetTongTienTheoThang()
+        {
+            return dalHoaDonMua.GetTongTienTheoThang();
+        }
     }
 }

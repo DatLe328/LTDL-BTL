@@ -125,21 +125,39 @@ namespace DAL_QuanLy
                 return null;
             }
         }
-        public DataTable GetThongKeChiPhiTheoThang()
+
+        /*Bao cao thong ke*/
+        public DataTable GetTongChiPhiTheoThang()
         {
-            DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT FORMAT(NgayLap, 'yyyy-MM') AS Thang, SUM(SoTien) AS TongTien FROM ChiPhi GROUP BY FORMAT(NgayLap, 'yyyy-MM') ORDER BY Thang";
-                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                string query = @"SELECT MONTH(NgayLap) AS Thang, 
+                                SUM(SoTien) AS TongChiPhi 
+                         FROM ChiPhi 
+                         GROUP BY MONTH(NgayLap) 
+                         ORDER BY Thang";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 return dt;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi thống kê: " + ex.Message);
+                Console.WriteLine("Lỗi truy vấn thống kê chi phí theo tháng: " + ex.Message);
                 return null;
             }
+        }
+        public DataTable GetTop5ChiPhiNhieuNhat()
+        {
+            string query = @"SELECT TOP 5 TenChiPhi, SoTien, NgayLap
+                     FROM ChiPhi
+                     ORDER BY SoTien DESC";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
         }
 
     }

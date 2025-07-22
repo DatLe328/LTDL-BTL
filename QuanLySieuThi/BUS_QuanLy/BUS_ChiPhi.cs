@@ -36,5 +36,15 @@ namespace BUS_QuanLy
         {
             return dalChiPhi.GetChiPhiByDate(ngayLap);
         }
+
+        /*Bao cao thong ke*/
+        public DataTable GetTongChiPhiTheoThang()
+        {
+            return dalChiPhi.GetTongChiPhiTheoThang();
+        }
+        public DataTable GetTop5ChiPhiNhieuNhat()
+        {
+            return dalChiPhi.GetTop5ChiPhiNhieuNhat();
+        }
     }
 }

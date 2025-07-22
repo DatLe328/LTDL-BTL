@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DonViHSD.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="GUI_BaoCaoThongKe.cs">
       <SubType>Form</SubType>
@@ -60,6 +60,12 @@
     </Compile>
     <Compile Include="GUI_ChiPhi.Designer.cs">
       <DependentUpon>GUI_ChiPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI_NhanVienPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_NhanVienPopup.Designer.cs">
+      <DependentUpon>GUI_NhanVienPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI_QuanLyNhanVien.cs">
       <SubType>Form</SubType>
@@ -87,6 +93,10 @@
     <Compile Include="GUI_QuanLyKho.Designer.cs">
       <DependentUpon>GUI_QuanLyKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="GUI_BaoCaoThongKe.resx">
+      <DependentUpon>GUI_BaoCaoThongKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI_ChiPhi.resx">
       <DependentUpon>GUI_ChiPhi.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_MainForm.resx">
       <DependentUpon>GUI_MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_NhanVienPopup.resx">
+      <DependentUpon>GUI_NhanVienPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_QuanLyNhanVien.resx">
+      <DependentUpon>GUI_QuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
