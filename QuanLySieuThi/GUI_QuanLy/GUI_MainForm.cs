@@ -29,7 +29,11 @@ namespace GUI_QuanLy
         {
             Application.Exit();
         }
-
+        private void chiPhíToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new GUI_ChiPhi();
+            form.Show();
+        }
         private void quanLyKhoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = new GUI_QuanLyKho();
@@ -164,5 +168,7 @@ namespace GUI_QuanLy
             _elapsedTime = _elapsedTime.Add(TimeSpan.FromSeconds(1));
             txtTimer.Text = _elapsedTime.ToString(@"hh\:mm\:ss");
         }
+
+        
     }
 }

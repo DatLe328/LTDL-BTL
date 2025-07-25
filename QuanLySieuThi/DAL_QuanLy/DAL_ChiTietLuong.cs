@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace DAL_QuanLy
 {
     public class DAL_ChiTietLuong : DBConnect
@@ -119,6 +118,60 @@ namespace DAL_QuanLy
                 Console.WriteLine("Error updating ChiTietLuong: " + ex.Message);
                 return false;
             }
+        }
+
+        //Bao cao thong ke
+        public DataTable ThongKeTatCaLuongTheoLoaiKhoan()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = @"SELECT LoaiKhoan, SUM(SoTien) AS TongTien
+                       FROM ChiTietLuong
+                       GROUP BY LoaiKhoan";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    conn.Open();
+                    using (var adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi thống kê: " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable GetTop5NhanVienLuongCaoNhat()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = @"
+                    SELECT TOP 5 nv.HoTenNV, SUM(ct.SoTien) AS TongLuong
+                    FROM ChiTietLuong ct
+                    JOIN BangLuong bl ON ct.MaLuong = bl.MaLuong
+                    JOIN NhanVien nv ON bl.MaNhanVien = nv.MaNhanVien
+                    GROUP BY nv.HoTenNV
+                    ORDER BY TongLuong DESC";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    conn.Open();
+                    using (var adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi thống kê top 5 lương: " + ex.Message);
+            }
+            return dt;
         }
     }
 }

@@ -35,14 +35,15 @@
             this.quanLyNhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baoCaoThongKeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbHello = new System.Windows.Forms.Label();
-            this.btnChamCong = new System.Windows.Forms.Button();
-            this.dgvCaLamViec = new System.Windows.Forms.DataGridView();
-            this.txtTimer = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbHidden = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbCaLam = new System.Windows.Forms.Label();
+            this.lbHidden = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTimer = new System.Windows.Forms.TextBox();
+            this.dgvCaLamViec = new System.Windows.Forms.DataGridView();
+            this.btnChamCong = new System.Windows.Forms.Button();
+            this.lbHello = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.chiPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaLamViec)).BeginInit();
@@ -54,7 +55,8 @@
             this.toolStripMenuItem1,
             this.quanLyKhoToolStripMenuItem,
             this.quanLyNhanVienToolStripMenuItem,
-            this.baoCaoThongKeToolStripMenuItem});
+            this.baoCaoThongKeToolStripMenuItem,
+            this.chiPhíToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1029, 24);
@@ -106,14 +108,49 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // lbHello
+            // lbCaLam
             // 
-            this.lbHello.AutoSize = true;
-            this.lbHello.Location = new System.Drawing.Point(54, 31);
-            this.lbHello.Name = "lbHello";
-            this.lbHello.Size = new System.Drawing.Size(129, 29);
-            this.lbHello.TabIndex = 0;
-            this.lbHello.Text = "Hello label";
+            this.lbCaLam.AutoSize = true;
+            this.lbCaLam.Location = new System.Drawing.Point(54, 307);
+            this.lbCaLam.Name = "lbCaLam";
+            this.lbCaLam.Size = new System.Drawing.Size(150, 29);
+            this.lbCaLam.TabIndex = 6;
+            this.lbCaLam.Text = "Hidden label";
+            // 
+            // lbHidden
+            // 
+            this.lbHidden.AutoSize = true;
+            this.lbHidden.Location = new System.Drawing.Point(616, 74);
+            this.lbHidden.Name = "lbHidden";
+            this.lbHidden.Size = new System.Drawing.Size(150, 29);
+            this.lbHidden.TabIndex = 5;
+            this.lbHidden.Text = "Hidden label";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(54, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(197, 29);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Thời gian hiện tại";
+            // 
+            // txtTimer
+            // 
+            this.txtTimer.Enabled = false;
+            this.txtTimer.Location = new System.Drawing.Point(267, 247);
+            this.txtTimer.Name = "txtTimer";
+            this.txtTimer.Size = new System.Drawing.Size(167, 35);
+            this.txtTimer.TabIndex = 3;
+            this.txtTimer.Text = "00:00:00";
+            // 
+            // dgvCaLamViec
+            // 
+            this.dgvCaLamViec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCaLamViec.Location = new System.Drawing.Point(59, 74);
+            this.dgvCaLamViec.Name = "dgvCaLamViec";
+            this.dgvCaLamViec.Size = new System.Drawing.Size(530, 150);
+            this.dgvCaLamViec.TabIndex = 2;
             // 
             // btnChamCong
             // 
@@ -125,53 +162,25 @@
             this.btnChamCong.UseVisualStyleBackColor = true;
             this.btnChamCong.Click += new System.EventHandler(this.btnChamCong_Click);
             // 
-            // dgvCaLamViec
+            // lbHello
             // 
-            this.dgvCaLamViec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCaLamViec.Location = new System.Drawing.Point(59, 74);
-            this.dgvCaLamViec.Name = "dgvCaLamViec";
-            this.dgvCaLamViec.Size = new System.Drawing.Size(530, 150);
-            this.dgvCaLamViec.TabIndex = 2;
-            // 
-            // txtTimer
-            // 
-            this.txtTimer.Enabled = false;
-            this.txtTimer.Location = new System.Drawing.Point(267, 247);
-            this.txtTimer.Name = "txtTimer";
-            this.txtTimer.Size = new System.Drawing.Size(167, 35);
-            this.txtTimer.TabIndex = 3;
-            this.txtTimer.Text = "00:00:00";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 250);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 29);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Thời gian hiện tại";
-            // 
-            // lbHidden
-            // 
-            this.lbHidden.AutoSize = true;
-            this.lbHidden.Location = new System.Drawing.Point(616, 74);
-            this.lbHidden.Name = "lbHidden";
-            this.lbHidden.Size = new System.Drawing.Size(150, 29);
-            this.lbHidden.TabIndex = 5;
-            this.lbHidden.Text = "Hidden label";
+            this.lbHello.AutoSize = true;
+            this.lbHello.Location = new System.Drawing.Point(54, 31);
+            this.lbHello.Name = "lbHello";
+            this.lbHello.Size = new System.Drawing.Size(129, 29);
+            this.lbHello.TabIndex = 0;
+            this.lbHello.Text = "Hello label";
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lbCaLam
+            // chiPhíToolStripMenuItem
             // 
-            this.lbCaLam.AutoSize = true;
-            this.lbCaLam.Location = new System.Drawing.Point(54, 307);
-            this.lbCaLam.Name = "lbCaLam";
-            this.lbCaLam.Size = new System.Drawing.Size(150, 29);
-            this.lbCaLam.TabIndex = 6;
-            this.lbCaLam.Text = "Hidden label";
+            this.chiPhíToolStripMenuItem.Name = "chiPhíToolStripMenuItem";
+            this.chiPhíToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.chiPhíToolStripMenuItem.Text = "Chi phí";
+            this.chiPhíToolStripMenuItem.Click += new System.EventHandler(this.chiPhíToolStripMenuItem_Click);
             // 
             // GUI_MainForm
             // 
@@ -211,5 +220,6 @@
         private System.Windows.Forms.Label lbHidden;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbCaLam;
+        private System.Windows.Forms.ToolStripMenuItem chiPhíToolStripMenuItem;
     }
 }

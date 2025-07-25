@@ -48,5 +48,10 @@ namespace BUS_QuanLy
         {
             return dalBangChamCong.GetMaChamCongLatest(maNhanVien);
         }
+        public DataTable ThongKeNgayCongTheoThang(int thang, int nam)
+        {
+            return dalBangChamCong.ThongKeNgayCongTheoThang(thang, nam);
+        }
+
     }
 }

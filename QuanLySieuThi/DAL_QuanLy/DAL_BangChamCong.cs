@@ -271,5 +271,42 @@ namespace DAL_QuanLy
                 }
             }
         }
+
+        //Bao cao thong ke
+        public DataTable ThongKeNgayCongTheoThang(int thang, int nam)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = @"
+                SELECT nv.HoTenNV AS TenNhanVien,
+                COUNT(*) AS SoNgayCong
+                FROM BangChamCong cc
+                JOIN NhanVien nv ON cc.MaNhanVien = nv.MaNhanVien
+                WHERE MONTH(cc.NgayChamCong) = @Thang
+                AND YEAR(cc.NgayChamCong) = @Nam
+                AND cc.TrangThai LIKE N'%chấm công%'
+                GROUP BY nv.HoTenNV
+                ORDER BY SoNgayCong DESC";
+
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Thang", thang);
+                    cmd.Parameters.AddWithValue("@Nam", nam);
+                    conn.Open();
+                    using (var adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi thống kê ngày công: " + ex.Message);
+            }
+            return dt;
+        }
+
     }
 }

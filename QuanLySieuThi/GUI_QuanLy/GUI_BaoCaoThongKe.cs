@@ -10,13 +10,16 @@ namespace GUI_QuanLy
     {
         private BUS_ChiPhi busChiPhi;
         private BUS_HoaDonMua busHoaDonMua;
-
+        private BUS_ChiTietLuong busChiTietLuong;
+        private BUS_BangChamCong busBangChamCong;
 
         public GUI_BaoCaoThongKe()
         {
             InitializeComponent();
             busChiPhi = new BUS_ChiPhi();
             busHoaDonMua = new BUS_HoaDonMua();
+            busChiTietLuong = new BUS_ChiTietLuong();
+            busBangChamCong = new BUS_BangChamCong();
             this.Load += new EventHandler(GUI_BaoCaoThongKe_Load);
         }
 
@@ -26,9 +29,12 @@ namespace GUI_QuanLy
             LoadPieChartTop5ChiPhi();
             LoadBieuDoHoaDonMuaTheoNgay();
             LoadBieuDoHoaDonMuaTheoThang();
-
+            LoadBieuDoLuongTheoLoai();
+            LoadTop5NhanVienLuongCaoNhat();
+            LoadThongKeNgayCong(DateTime.Now.Month, DateTime.Now.Year);
         }
 
+        //Bao cao thong ke chi phi
         private void LoadBieuDoChiPhiTheoThang()
         {
             try
@@ -95,6 +101,8 @@ namespace GUI_QuanLy
                 MessageBox.Show("Lỗi khi tải biểu đồ Top 5 Chi Phí: " + ex.Message);
             }
         }
+
+        //Bao cao thong ke hoa don mua
         private void LoadBieuDoHoaDonMuaTheoNgay()
         {
             try
@@ -150,5 +158,107 @@ namespace GUI_QuanLy
             }
         }
 
+
+        //Bao cao thong ke tien luong
+        private void LoadBieuDoLuongTheoLoai()
+        {
+            try
+            {
+                DataTable dt = busChiTietLuong.ThongKeTatCaLuongTheoLoaiKhoan();
+
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu lương để hiển thị.");
+                    return;
+                }
+
+                chartLuong.Series.Clear();
+                if (chartLuong.ChartAreas.Count == 0)
+                {
+                    chartLuong.ChartAreas.Add(new ChartArea("Default"));
+                }
+
+                chartLuong.ChartAreas[0].AxisX.Title = "Loại khoản";
+                chartLuong.ChartAreas[0].AxisY.Title = "Tổng tiền";
+
+                Series series = new Series("Tiền lương");
+                series.ChartType = SeriesChartType.Column;
+                series.IsValueShownAsLabel = true;
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string loai = row["LoaiKhoan"].ToString();
+                    decimal tong = Convert.ToDecimal(row["TongTien"]);
+                    series.Points.AddXY(loai, tong);
+                }
+
+                chartLuong.Series.Add(series);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải biểu đồ lương: " + ex.Message);
+            }
+        }
+        private void LoadTop5NhanVienLuongCaoNhat()
+        {
+            try
+            {
+                DataTable dt = busChiTietLuong.GetTop5NhanVienLuongCaoNhat();
+
+                chartTopLuong.Series.Clear();
+                if (chartTopLuong.ChartAreas.Count == 0)
+                    chartTopLuong.ChartAreas.Add(new ChartArea("Default"));
+
+                chartTopLuong.ChartAreas[0].AxisX.Title = "Nhân viên";
+                chartTopLuong.ChartAreas[0].AxisY.Title = "Tổng lương";
+
+                Series series = new Series("Top 5 Lương");
+                series.ChartType = SeriesChartType.Column;
+                series.IsValueShownAsLabel = true;
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string tenNV = row["HoTenNV"].ToString();
+                    decimal tongLuong = Convert.ToDecimal(row["TongLuong"]);
+                    series.Points.AddXY(tenNV, tongLuong);
+                }
+
+                chartTopLuong.Series.Add(series);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải biểu đồ Top 5 lương: " + ex.Message);
+            }
+        }
+
+        private void LoadThongKeNgayCong(int thang, int nam)
+        {
+            DataTable dt = busBangChamCong.ThongKeNgayCongTheoThang(thang, nam);
+
+            chartNgayCong.Series.Clear();
+            chartNgayCong.ChartAreas[0].AxisX.Title = "Nhân viên";
+            chartNgayCong.ChartAreas[0].AxisY.Title = "Số ngày công";
+
+            Series series = new Series("Ngày công");
+            series.ChartType = SeriesChartType.Column;
+            series.IsValueShownAsLabel = true;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string tenNV = row["TenNhanVien"].ToString();
+                int soNgayCong = Convert.ToInt32(row["SoNgayCong"]);
+                series.Points.AddXY(tenNV, soNgayCong);
+            }
+            chartNgayCong.Series.Add(series);
+        }
+
+        private void btnXemBaoCao_Click(object sender, EventArgs e)
+        {
+                DateTime ngayChon = dtpChonThangNam.Value;
+                int thang = ngayChon.Month;
+                int nam = ngayChon.Year;
+
+                LoadThongKeNgayCong(thang, nam);
+        }
     }
 }

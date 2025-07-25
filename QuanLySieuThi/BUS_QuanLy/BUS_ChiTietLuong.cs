@@ -35,5 +35,14 @@ namespace BUS_QuanLy
         {
             return dalChiTietLuong.UpdateChiTietLuong(maChiTietLuong, loaiKhoan, soTien, ghiChu);
         }
+        public DataTable ThongKeTatCaLuongTheoLoaiKhoan()
+        {
+            return dalChiTietLuong.ThongKeTatCaLuongTheoLoaiKhoan();
+        }
+        public DataTable GetTop5NhanVienLuongCaoNhat()
+        {
+            return dalChiTietLuong.GetTop5NhanVienLuongCaoNhat();
+        }
+    
     }
 }
