@@ -26,6 +26,7 @@ namespace GUI_QuanLy
             txtTenDangNhap.BorderStyle = BorderStyle.FixedSingle;
             txtMatKhau.BorderStyle = BorderStyle.FixedSingle;
         }
+        private BUS_NhanVien busNhanVien = new BUS_NhanVien();
         private BUS_TaiKhoan busTaiKhoan = new BUS_TaiKhoan();
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
@@ -41,6 +42,8 @@ namespace GUI_QuanLy
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Globals.TenDangNhap = tenDangNhap;
                 Globals.MaNhanVien = busTaiKhoan.GetMaNhanVienByTenDangNhap(tenDangNhap);
+                Globals.ChucVu = busNhanVien.GetChucVu(Globals.MaNhanVien).TenChucVu;
+                Console.WriteLine("DEBUG (GUI_Login): Vai tro = " + Globals.ChucVu);
                 Console.WriteLine("DEBUG (GUI_Login): MaNhanVien = " + Globals.MaNhanVien);
                 Console.WriteLine("DEBUG (GUI_Login): TenDangNhap = " + Globals.TenDangNhap);
                 // Mở form chính của ứng dụng

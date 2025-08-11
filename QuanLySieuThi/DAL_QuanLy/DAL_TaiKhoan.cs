@@ -56,6 +56,27 @@ namespace DAL_QuanLy
                 conn.Close();
             }
         }
+        public string getPhanQuyenByTenDangNhap(string tenDangNhap)
+        {
+            try
+            {
+                conn.Open();
+                string query = "SELECT PhanQuyen FROM TaiKhoan WHERE TenDangNhap = @TenDangNhap";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+                object result = cmd.ExecuteScalar();
+                return result != null ? result.ToString() : string.Empty;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return string.Empty;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public bool AddTaiKhoan(string tenDangNhap = "", string matKhau = "123456", int maNhanVien = 0)
         {
             if (string.IsNullOrEmpty(tenDangNhap) || maNhanVien == 0)

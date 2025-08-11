@@ -469,13 +469,6 @@ namespace GUI_QuanLy
                             if (soPhutLamViec >= 0.8 * soPhutCa)
                             {
                                 soNgayCong += 1;
-                                int maBangLuong = (int)busBangLuong.GetBangLuong(maNhanVien, ngayChamCong.Month, ngayChamCong.Year).Rows[0]["MaLuong"];
-                                busChiTietLuong.AddChiTietLuong(
-                                    maBangLuong,
-                                    EnumExtensions.GetDescription(LoaiKhoan.Phat),
-                                    -100000,
-                                    "Đi trễ " + (gioVao - gioBatDauCa).ToString(@"hh\:mm")
-                                );
                             }
                         }
                         else if (gioVao - thoiGianTreToiDa <= gioBatDauCa && gioRa >= gioKetThucCa)
@@ -493,13 +486,13 @@ namespace GUI_QuanLy
             
             DateTime thangTruoc = DateTime.Now.AddMonths(-1);
             DateTime ngayDauTienThangTruoc = new DateTime(thangTruoc.Year, thangTruoc.Month, 1);
-            //DateTime ngayHomQua = DateTime.Now.AddDays(-1);
-            DateTime ngayHomQua = DateTime.Now;
+            DateTime ngayHomQua = DateTime.Now.AddDays(-1);
+            //DateTime ngayHomQua = DateTime.Now;
             DataTable bangLuongThangTruoc = busBangLuong.GetBangLuong(maNhanVien, thangTruoc.Month, thangTruoc.Year);
-            if (bangLuongThangTruoc.Rows.Count == 0)
+            Console.WriteLine("DEBUG so ngay cong: " + bangLuongThangTruoc);
+            if (bangLuongThangTruoc.Rows.Count == 0 || bangLuongThangTruoc.Rows[0]["NgayChotLuong"] == DBNull.Value)
             {
                 txtSoNgayCong.Text = TinhSoNgayCong(maNhanVien, ngayDauTienThangTruoc, ngayHomQua).ToString();
-                Console.WriteLine(ngayHomQua.ToString("dd/MM/yyyy"));
             }
             else
             {
@@ -543,12 +536,14 @@ namespace GUI_QuanLy
             int maNhanVien = int.Parse(txtMaNhanVienChon.Text);
             DataTable dt = busBangLuong.GetBangLuong(maNhanVien, DateTime.Now.Month, DateTime.Now.Year);
             bool hasBangLuongThisMonth = dt.Rows.Count > 0;
+            Console.WriteLine("DEBUG BangLuong: " + hasBangLuongThisMonth);
             if (!hasBangLuongThisMonth)
             {
                 Console.WriteLine("Chưa có bảng lương cho nhân viên này trong tháng hiện tại.");
                 Console.WriteLine("Thêm bảng lương mới cho nhân viên vào tháng " + DateTime.Now.Month + ", năm " + DateTime.Now.Year);
                 GenerateBangLuong(maNhanVien, DateTime.Now.Month, DateTime.Now.Year);
             }
+            dt = busBangLuong.GetBangLuong(maNhanVien, DateTime.Now.Month, DateTime.Now.Year);
             DateTime thangSau = DateTime.Now.AddMonths(1);
             if (dt.Rows[0]["TrangThai"].ToString() == EnumExtensions.GetDescription(TrangThaiBangLuong.DaXuLy))
             {
@@ -720,18 +715,21 @@ namespace GUI_QuanLy
             {
                 DataGridViewRow row = dgvTinhLuongNhanVien.SelectedRows[0];
                 int maNhanVien = int.Parse(txtMaNhanVienChon.Text);
-                DataTable dt = busBangLuong.GetBangLuong(maNhanVien, DateTime.Now.Month, DateTime.Now.Year);
+                int thang = int.Parse(row.Cells["Thang"].Value.ToString());
+                int nam = int.Parse(row.Cells["Nam"].Value.ToString());
+                if (thang > DateTime.Now.Month || nam > DateTime.Now.Year)
+                {
+                    MessageBox.Show("Không thể chốt lương sớm vào tháng này\nHãy liên hệ hỗ trợ.");
+                    return;
+                }
+                DataTable dt = busBangLuong.GetBangLuong(maNhanVien, thang, nam);
                 if (dt.Rows.Count == 0)
                 {
                     MessageBox.Show("Chưa có bảng lương cho nhân viên này trong tháng hiện tại.");
                     return;
                 }
                 Console.WriteLine("Debug(GUI_QuanLyNhanVien): " + row.Cells["Thang"].Value.ToString() + " " + row.Cells["Nam"].Value.ToString());
-                if (row.Cells["Thang"].Value.ToString() != DateTime.Now.Month.ToString() || row.Cells["Nam"].Value.ToString() != DateTime.Now.Year.ToString())
-                {
-                    MessageBox.Show("Không thể chốt lương sớm vào tháng này\nHãy liên hệ hỗ trợ.");
-                    return;
-                }
+                
                 int maBangLuong = Convert.ToInt32(dt.Rows[0]["MaLuong"]);
                 int soNgayCong = int.Parse(txtSoNgayCong.Text);
                 string txtGhiChu = txtGhiChuLuong.Text.Trim();

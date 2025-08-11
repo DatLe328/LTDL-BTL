@@ -24,12 +24,45 @@ namespace GUI_QuanLy
             busCaLamViec = new BUS_CaLamViec();
             busBangChamCong = new BUS_BangChamCong();
         }
+        private void GUI_MainForm_Load(object sender, EventArgs e)
+        {
+            lbHidden.Text = "";
+            lbCaLam.Text = "";
+            lbHello.Text = "Xin chào, " + Globals.TenDangNhap + "!";
+            GenerateTodaySchedule();
+            LoadCaLamViec();
+            DropOut();
+            ToolStripMenuItem quanLyKhoItem = new ToolStripMenuItem("Quản lý kho");
+            ToolStripMenuItem quanLyNhanVienItem = new ToolStripMenuItem("Quản lý nhân viên");
+            ToolStripMenuItem chiPhiItem = new ToolStripMenuItem("Quản lý chi phí");
+            ToolStripMenuItem baoCaoItem = new ToolStripMenuItem("Báo cáo thống kê");
 
+            bool isQuanLy = Globals.ChucVu == EnumExtensions.GetDescription(PhanQuyen.QuanLy);
+            Console.WriteLine("DEBUG (GUI_MainForm): ChucVu = " + Globals.ChucVu);
+            if (isQuanLy || Globals.ChucVu == EnumExtensions.GetDescription(PhanQuyen.ThuKho))
+            {
+                menuStrip1.Items.Add(quanLyKhoItem);
+            }
+            if (isQuanLy ||  Globals.ChucVu == EnumExtensions.GetDescription(PhanQuyen.QuanLyNhanSu))
+            {
+                menuStrip1.Items.Add(quanLyNhanVienItem);
+            }
+            if (isQuanLy || Globals.ChucVu == EnumExtensions.GetDescription(PhanQuyen.KeToan))
+            {
+                menuStrip1.Items.Add(baoCaoItem);
+                menuStrip1.Items.Add(chiPhiItem);
+            }
+            quanLyKhoItem.Click += quanLyKhoToolStripMenuItem_Click;
+            quanLyNhanVienItem.Click += quanLyNhanVienToolStripMenuItem_Click;
+            chiPhiItem.Click += chiPhiToolStripMenuItem_Click;
+            baoCaoItem.Click += baoCaoThongKeToolStripMenuItem_Click;
+
+        }
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-        private void chiPhíToolStripMenuItem_Click(object sender, EventArgs e)
+        private void chiPhiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = new GUI_ChiPhi();
             form.Show();
@@ -52,15 +85,7 @@ namespace GUI_QuanLy
             form.Show();
         }
 
-        private void GUI_MainForm_Load(object sender, EventArgs e)
-        {
-            lbHidden.Text = "";
-            lbCaLam.Text = "";
-            lbHello.Text = "Xin chào, " + Globals.TenDangNhap + "!";
-            GenerateTodaySchedule();
-            LoadCaLamViec();
-            DropOut();
-        }
+
         private void GenerateTodaySchedule()
         {
             if (Utils.IsInWorkDay(DateTime.Today) == false || Globals.TuDongTaoCaLamViec == false)
@@ -127,7 +152,9 @@ namespace GUI_QuanLy
                 return false;
             }
         }
-
+        /*
+         * Thêm phạt đi trễ khi chấm công
+         */
         private void btnChamCong_Click(object sender, EventArgs e)
         {
             int maChamCong = busBangChamCong.GetMaChamCongLatest(Globals.MaNhanVien);

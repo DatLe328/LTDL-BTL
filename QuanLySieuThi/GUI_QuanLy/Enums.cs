@@ -22,16 +22,14 @@ namespace GUI_QuanLy
     }
     public enum PhanQuyen
     {
-        [Description("Quản lý nhân viên")]
-        QuanLyNhanVien = 0,
-        [Description("Quản lý lương")]
-        QuanLyLuong = 1,
-        [Description("Quản lý kho")]
-        QuanLyKho = 2,
-        [Description("Quản lý bán hàng")]
-        QuanLyBanHang = 3,
-        [Description("Quản lý báo cáo")]
-        QuanLyBaoCao = 4
+        [Description("Quản lý")]
+        QuanLy = 0,
+        [Description("Thủ kho")]
+        ThuKho = 1,
+        [Description("Kế toán")]
+        KeToan = 2,
+        [Description("Quản lý nhân sự")]
+        QuanLyNhanSu = 3,
     }
     public enum TrangThaiBangLuong
     {

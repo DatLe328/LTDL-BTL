@@ -22,6 +22,10 @@ namespace BUS_QuanLy
         {
             return dAL_TaiKhoan.GetMaNhanVienByTenDangNhap(tenDangNhap);
         }
+        public string getPhanQuyenByTenDangNhap(string tenDangNhap)
+        {
+            return dAL_TaiKhoan.getPhanQuyenByTenDangNhap(tenDangNhap);
+        }
         public bool AddTaiKhoan(string tenDangNhap = "", string matKhau = "123456", int maNhanVien = 0)
         {
             return dAL_TaiKhoan.AddTaiKhoan(tenDangNhap, matKhau, maNhanVien);

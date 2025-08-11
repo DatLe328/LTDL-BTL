@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Threading;
 
 namespace GUI_QuanLy
 {
@@ -429,10 +430,21 @@ namespace GUI_QuanLy
          */
         private void LoadQuanLyDatHang()
         {
+            ResetDatHang();
             LoadComboBoxNhaCungCap();
             LoadDanhSachDatMua();
             LoadDanhSachHangHoa();
             LoadDatHang();
+            Utils.MyDataGridViewFormat(dgvDanhSachDatMua);
+            Utils.MyDataGridViewFormat(dgvDanhSachHangHoa);
+        }
+        private void ResetDatHang()
+        {
+            txtSoLuongDatMua.Text = string.Empty;
+            txtGhiChu.Text = string.Empty;
+            dgvDanhSachDatMua.DataSource = null;
+            dgvDanhSachHangHoa.DataSource = null;
+            cbNhaCungCap.DataSource = null;
         }
         private void LoadDatHang()
         {
@@ -452,38 +464,80 @@ namespace GUI_QuanLy
         private void LoadDanhSachHangHoa()
         {
             dgvDanhSachHangHoa.RowTemplate.Height = 40;
-            dgvDanhSachHangHoa.Columns.Add("MaHangHoa", "Mã Hàng Hóa");
-            dgvDanhSachHangHoa.Columns.Add("TenHangHoa", "Tên Hàng Hóa");
-            dgvDanhSachHangHoa.Columns.Add("GiaBan", "Giá Bán");
-            dgvDanhSachHangHoa.Columns.Add("DonViTinh", "Đơn Vị Tính");
-            dgvDanhSachHangHoa.Columns.Add("MaLoaiHangHoa", "Mã Loại Hàng Hóa");
-
-            dgvDanhSachHangHoa.Columns["MaHangHoa"].DataPropertyName = "MaHangHoa";
-            dgvDanhSachHangHoa.Columns["TenHangHoa"].DataPropertyName = "TenHangHoa";
-            dgvDanhSachHangHoa.Columns["GiaBan"].DataPropertyName = "GiaBan";
-            dgvDanhSachHangHoa.Columns["DonViTinh"].DataPropertyName = "DonViTinh";
-            dgvDanhSachHangHoa.Columns["MaLoaiHangHoa"].DataPropertyName = "MaLoaiHangHoa";
+            if (!dgvDanhSachHangHoa.Columns.Contains("MaHangHoa"))
+            {
+                dgvDanhSachHangHoa.Columns.Add("MaHangHoa", "Mã Hàng Hóa");
+                dgvDanhSachHangHoa.Columns["MaHangHoa"].DataPropertyName = "MaHangHoa";
+            }
+            if (!dgvDanhSachHangHoa.Columns.Contains("TenHangHoa"))
+            {
+                dgvDanhSachHangHoa.Columns.Add("TenHangHoa", "Tên Hàng Hóa");
+                dgvDanhSachHangHoa.Columns["TenHangHoa"].DataPropertyName = "TenHangHoa";
+            }
+            if (!dgvDanhSachHangHoa.Columns.Contains("GiaBan"))
+            {
+                dgvDanhSachHangHoa.Columns.Add("GiaBan", "Giá Bán");
+                dgvDanhSachHangHoa.Columns["GiaBan"].DataPropertyName = "GiaBan";
+            }
+            if (!dgvDanhSachHangHoa.Columns.Contains("DonViTinh"))
+            {
+                dgvDanhSachHangHoa.Columns.Add("DonViTinh", "Đơn Vị Tính");
+                dgvDanhSachHangHoa.Columns["DonViTinh"].DataPropertyName = "DonViTinh";
+            }
+            if (!dgvDanhSachHangHoa.Columns.Contains("MaLoaiHangHoa"))
+            {
+                dgvDanhSachHangHoa.Columns.Add("MaLoaiHangHoa", "Mã Loại Hàng Hóa");
+                dgvDanhSachHangHoa.Columns["MaLoaiHangHoa"].DataPropertyName = "MaLoaiHangHoa";
+            }
         }
         private void LoadDanhSachDatMua()
         {
             dgvDanhSachDatMua.RowTemplate.Height = 40;
-            dgvDanhSachDatMua.Columns.Add("MaHangHoa", "Mã Hàng Hóa");
-            dgvDanhSachDatMua.Columns.Add("TenHangHoa", "Tên Hàng Hóa");
-            dgvDanhSachDatMua.Columns.Add("GiaBan", "Giá Bán");
-            dgvDanhSachDatMua.Columns.Add("SoLuong", "Số Lượng");
-            dgvDanhSachDatMua.Columns.Add("DonViTinh", "Đơn Vị Tính");
-            dgvDanhSachDatMua.Columns.Add("MaLoaiHangHoa", "Mã Loại Hàng Hóa");
-            dgvDanhSachDatMua.Columns.Add("MaNhaCungCap", "Mã Nhà Cung Cấp");
-            dgvDanhSachDatMua.Columns.Add("HanSuDungTieuChuan", "Hạn sử dụng");
-            dgvDanhSachDatMua.Columns.Add("DonViHanSuDung", "Đơn vị hạn sử dụng");
-
-            DataGridViewButtonColumn btnXoa = new DataGridViewButtonColumn();
-            btnXoa.HeaderText = "Hành động";
-            btnXoa.Text = "Xóa";
-            btnXoa.UseColumnTextForButtonValue = true;
-            btnXoa.Name = "btnXoa";
-
-            dgvDanhSachDatMua.Columns.Add(btnXoa);
+            if (!dgvDanhSachDatMua.Columns.Contains("MaHangHoa"))
+            {
+                dgvDanhSachDatMua.Columns.Add("MaHangHoa", "Mã Hàng Hóa");
+            }
+            if (!dgvDanhSachDatMua.Columns.Contains("TenHangHoa"))
+            {
+                dgvDanhSachDatMua.Columns.Add("TenHangHoa", "Tên Hàng Hóa");
+            }
+            if (!dgvDanhSachDatMua.Columns.Contains("GiaBan"))
+            {
+                dgvDanhSachDatMua.Columns.Add("GiaBan", "Giá Bán");
+            }
+            if (!dgvDanhSachDatMua.Columns.Contains("SoLuong"))
+            {
+                dgvDanhSachDatMua.Columns.Add("SoLuong", "Số Lượng");
+            }
+            if (!dgvDanhSachDatMua.Columns.Contains("DonViTinh"))
+            {
+                dgvDanhSachDatMua.Columns.Add("DonViTinh", "Đơn Vị Tính");
+            }
+            if (!dgvDanhSachDatMua.Columns.Contains("MaLoaiHangHoa"))
+            {
+                dgvDanhSachDatMua.Columns.Add("MaLoaiHangHoa", "Mã Loại Hàng Hóa");
+            }
+            if (!dgvDanhSachDatMua.Columns.Contains("MaNhaCungCap"))
+            {
+                dgvDanhSachDatMua.Columns.Add("MaNhaCungCap", "Mã Nhà Cung Cấp");
+            }
+            if (!dgvDanhSachDatMua.Columns.Contains("HanSuDungTieuChuan"))
+            {
+                dgvDanhSachDatMua.Columns.Add("HanSuDungTieuChuan", "Hạn sử dụng");
+            }
+            if (!dgvDanhSachDatMua.Columns.Contains("DonViHanSuDung"))
+            {
+                dgvDanhSachDatMua.Columns.Add("DonViHanSuDung", "Đơn vị hạn sử dụng");
+            }
+            if (!dgvDanhSachDatMua.Columns.Contains("btnXoa"))
+            {
+                DataGridViewButtonColumn btnXoa = new DataGridViewButtonColumn();
+                btnXoa.HeaderText = "Hành động";
+                btnXoa.Text = "Xóa";
+                btnXoa.UseColumnTextForButtonValue = true;
+                btnXoa.Name = "btnXoa";
+                dgvDanhSachDatMua.Columns.Add(btnXoa);
+            }
         }
         private void LoadComboBoxNhaCungCap()
         {

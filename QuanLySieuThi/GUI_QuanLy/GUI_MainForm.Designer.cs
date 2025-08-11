@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.quanLyKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quanLyNhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baoCaoThongKeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbCaLam = new System.Windows.Forms.Label();
             this.lbHidden = new System.Windows.Forms.Label();
@@ -43,7 +40,6 @@
             this.btnChamCong = new System.Windows.Forms.Button();
             this.lbHello = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.chiPhíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaLamViec)).BeginInit();
@@ -52,11 +48,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.quanLyKhoToolStripMenuItem,
-            this.quanLyNhanVienToolStripMenuItem,
-            this.baoCaoThongKeToolStripMenuItem,
-            this.chiPhíToolStripMenuItem});
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1029, 24);
@@ -67,27 +59,6 @@
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
-            // 
-            // quanLyKhoToolStripMenuItem
-            // 
-            this.quanLyKhoToolStripMenuItem.Name = "quanLyKhoToolStripMenuItem";
-            this.quanLyKhoToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
-            this.quanLyKhoToolStripMenuItem.Text = "Quản lý kho";
-            this.quanLyKhoToolStripMenuItem.Click += new System.EventHandler(this.quanLyKhoToolStripMenuItem_Click);
-            // 
-            // quanLyNhanVienToolStripMenuItem
-            // 
-            this.quanLyNhanVienToolStripMenuItem.Name = "quanLyNhanVienToolStripMenuItem";
-            this.quanLyNhanVienToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
-            this.quanLyNhanVienToolStripMenuItem.Text = "Quản lý nhân viên";
-            this.quanLyNhanVienToolStripMenuItem.Click += new System.EventHandler(this.quanLyNhanVienToolStripMenuItem_Click);
-            // 
-            // baoCaoThongKeToolStripMenuItem
-            // 
-            this.baoCaoThongKeToolStripMenuItem.Name = "baoCaoThongKeToolStripMenuItem";
-            this.baoCaoThongKeToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
-            this.baoCaoThongKeToolStripMenuItem.Text = "Báo cáo thống kê";
-            this.baoCaoThongKeToolStripMenuItem.Click += new System.EventHandler(this.baoCaoThongKeToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -175,13 +146,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // chiPhíToolStripMenuItem
-            // 
-            this.chiPhíToolStripMenuItem.Name = "chiPhíToolStripMenuItem";
-            this.chiPhíToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.chiPhíToolStripMenuItem.Text = "Chi phí";
-            this.chiPhíToolStripMenuItem.Click += new System.EventHandler(this.chiPhíToolStripMenuItem_Click);
-            // 
             // GUI_MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,9 +172,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem quanLyKhoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quanLyNhanVienToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem baoCaoThongKeToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbHello;
         private System.Windows.Forms.Label label1;
@@ -220,6 +181,5 @@
         private System.Windows.Forms.Label lbHidden;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbCaLam;
-        private System.Windows.Forms.ToolStripMenuItem chiPhíToolStripMenuItem;
     }
 }

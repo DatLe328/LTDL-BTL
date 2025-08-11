@@ -9,7 +9,7 @@ namespace GUI_QuanLy
     public class Globals
     {
         public static string TenDangNhap { get; set; } = "Tester";
-        public static int VaiTro { get; set; } = -1;
+        public static string ChucVu { get; set; } = "Tester";
         public static int MaNhanVien { get; set; } = -1;
         public static int MaChamCong { get; set; } = -1;
         public static TimeSpan ThoiGianTreToiDa { get; } = new TimeSpan(0, 15, 0); // 15 minutes
