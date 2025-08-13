@@ -1,4 +1,5 @@
 ﻿using DAL_QuanLy;
+using DTO_QuanLy;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,6 +24,18 @@ namespace BUS_QuanLy
         {
             return dalBangLuong.GetBangLuong(maNhanVien);
         }
+        public int GetLastMaLuongNhanVien(int maNhanVien)
+        {
+            return dalBangLuong.GetLastMaLuongNhanVien(maNhanVien);
+        }
+        public DTO_BangLuong GetLastBangLuongByMaNhanVien(int maNhanVien)
+        {
+            return dalBangLuong.GetLastBangLuongByMaNhanVien(maNhanVien);
+        }
+        public DTO_BangLuong GetBangLuongByMaLuong(int maLuong)
+        {
+            return dalBangLuong.GetBangLuongByMaLuong(maLuong);
+        }
         public DataTable GetBangLuong(int maNhanVien, int thang, int nam)
         {
             return dalBangLuong.GetBangLuong(maNhanVien, thang, nam);
@@ -34,6 +47,10 @@ namespace BUS_QuanLy
         public bool UpdateBangLuong(int maLuong, int soNgayCong, DateTime ngayChoLuong, string trangThai)
         {
             return dalBangLuong.UpdateBangLuong(maLuong, soNgayCong, ngayChoLuong, trangThai);
+        }
+        public bool UpdateBangLuong(int maLuong, int soNgayCong)
+        {
+            return dalBangLuong.UpdateBangLuong(maLuong, soNgayCong);
         }
         public int GetLastMaLuong()
         {

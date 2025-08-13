@@ -38,6 +38,27 @@ namespace GUI_QuanLy
         {
             return date.DayOfWeek >= Globals.StartWorkDay && date.DayOfWeek <= Globals.EndWorkDay;
         }
+        public static DateTime Clamp(DateTime x, DateTime lo, DateTime hi)
+        {
+            if (x < lo) return lo;
+            if (x > hi) return hi;
+            return x;
+        }
+
+        public static int OverlapMinutes(DateTime aStart, DateTime aEnd, DateTime bStart, DateTime bEnd)
+        {
+            var start = aStart > bStart ? aStart : bStart;
+            var end = aEnd < bEnd ? aEnd : bEnd;
+            return (int)Math.Max(0, (end - start).TotalMinutes);
+        }
+
+        public static TimeSpan GetTimeSpanCell(DataGridViewRow row, string colName)
+        {
+            var val = row.Cells[colName].Value;
+            if (val is TimeSpan ts) return ts;
+            if (val is string s && TimeSpan.TryParse(s, out var parsed)) return parsed;
+            throw new InvalidCastException($"Cột {colName} không phải TimeSpan hợp lệ.");
+        }
     }
     public static class EnumExtensions
     {

@@ -16,5 +16,7 @@ namespace GUI_QuanLy
         public static DayOfWeek StartWorkDay { get; } = DayOfWeek.Monday;
         public static DayOfWeek EndWorkDay { get; } = DayOfWeek.Friday;
         public static bool TuDongTaoCaLamViec { get; set; } = true;
+        public static int PhutChoTre { get; set; } = 15;
+        public static int TienPhatMoiPhut { get; set; } = 1000;
     }
 }

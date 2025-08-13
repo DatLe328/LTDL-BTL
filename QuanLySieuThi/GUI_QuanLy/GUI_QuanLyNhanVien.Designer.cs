@@ -71,6 +71,7 @@
             this.btnThemCaLam = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.ckbChuaXuLy = new System.Windows.Forms.CheckBox();
             this.btnLocLuongTheoThang = new System.Windows.Forms.Button();
             this.dgvTinhLuongNhanVien = new System.Windows.Forms.DataGridView();
             this.label22 = new System.Windows.Forms.Label();
@@ -98,7 +99,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtSoTienKhoan = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.ckbChuaXuLy = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.tabPageHangHoa.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -546,6 +546,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.DodgerBlue;
             this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.groupBox5);
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
@@ -554,7 +555,6 @@
             this.tabPage2.Size = new System.Drawing.Size(1331, 703);
             this.tabPage2.TabIndex = 2;
             this.tabPage2.Text = "Tính lương";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
@@ -573,6 +573,17 @@
             this.groupBox6.Size = new System.Drawing.Size(746, 679);
             this.groupBox6.TabIndex = 8;
             this.groupBox6.TabStop = false;
+            // 
+            // ckbChuaXuLy
+            // 
+            this.ckbChuaXuLy.AutoSize = true;
+            this.ckbChuaXuLy.Location = new System.Drawing.Point(573, 43);
+            this.ckbChuaXuLy.Name = "ckbChuaXuLy";
+            this.ckbChuaXuLy.Size = new System.Drawing.Size(141, 33);
+            this.ckbChuaXuLy.TabIndex = 22;
+            this.ckbChuaXuLy.Text = "Chưa xử lý";
+            this.ckbChuaXuLy.UseVisualStyleBackColor = true;
+            this.ckbChuaXuLy.CheckedChanged += new System.EventHandler(this.ckbChuaXuLy_CheckedChanged);
             // 
             // btnLocLuongTheoThang
             // 
@@ -842,17 +853,6 @@
             this.label7.Size = new System.Drawing.Size(130, 29);
             this.label7.TabIndex = 1;
             this.label7.Text = "Loại khoản";
-            // 
-            // ckbChuaXuLy
-            // 
-            this.ckbChuaXuLy.AutoSize = true;
-            this.ckbChuaXuLy.Location = new System.Drawing.Point(573, 43);
-            this.ckbChuaXuLy.Name = "ckbChuaXuLy";
-            this.ckbChuaXuLy.Size = new System.Drawing.Size(141, 33);
-            this.ckbChuaXuLy.TabIndex = 22;
-            this.ckbChuaXuLy.Text = "Chưa xử lý";
-            this.ckbChuaXuLy.UseVisualStyleBackColor = true;
-            this.ckbChuaXuLy.CheckedChanged += new System.EventHandler(this.ckbChuaXuLy_CheckedChanged);
             // 
             // GUI_QuanLyNhanVien
             // 

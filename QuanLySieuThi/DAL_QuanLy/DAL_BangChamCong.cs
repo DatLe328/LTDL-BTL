@@ -92,7 +92,8 @@ namespace DAL_QuanLy
                                 NgayChamCong = reader.GetDateTime(reader.GetOrdinal("NgayChamCong")),
                                 GioVao = reader.GetTimeSpan(reader.GetOrdinal("GioVao")),
                                 GioRa = reader.IsDBNull(reader.GetOrdinal("GioRa")) ? TimeSpan.Zero : reader.GetTimeSpan(reader.GetOrdinal("GioRa")),
-                                TrangThai = reader.GetString(reader.GetOrdinal("TrangThai"))
+                                TrangThai = reader.GetString(reader.GetOrdinal("TrangThai")),
+                                MaCa = reader.GetInt32(reader.GetOrdinal("MaCa"))
                             };
                         }
                     }

@@ -61,13 +61,14 @@ namespace DAL_QuanLy
         {
             try
             {
-                string sql = "UPDATE HoaDonMua SET MaNCC = @MaNCC, NgayLap = @NgayLap, TongTien = @TongTien WHERE MaHoaDonMua = @MaHoaDonMua";
+                string sql = "UPDATE HoaDonMua SET MaNCC = @MaNCC, NgayLap = @NgayLap, TongTien = @TongTien, GhiChu = @GhiChu WHERE MaHoaDonMua = @MaHoaDonMua";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@MaHoaDonMua", updatedHoaDonMua.MaHoaDon);
                     cmd.Parameters.AddWithValue("@MaNCC", updatedHoaDonMua.MaNCC);
                     cmd.Parameters.AddWithValue("@NgayLap", updatedHoaDonMua.NgayLap);
                     cmd.Parameters.AddWithValue("@TongTien", updatedHoaDonMua.TongTien);
+                    cmd.Parameters.AddWithValue("@GhiChu", updatedHoaDonMua.GhiChu);
                     conn.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
                     return rowsAffected > 0;

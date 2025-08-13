@@ -33,7 +33,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbCaLam = new System.Windows.Forms.Label();
-            this.lbHidden = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTimer = new System.Windows.Forms.TextBox();
             this.dgvCaLamViec = new System.Windows.Forms.DataGridView();
@@ -51,7 +50,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1029, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(952, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,7 +65,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.lbCaLam);
-            this.groupBox1.Controls.Add(this.lbHidden);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtTimer);
             this.groupBox1.Controls.Add(this.dgvCaLamViec);
@@ -75,32 +73,23 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1005, 509);
+            this.groupBox1.Size = new System.Drawing.Size(928, 520);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
             // lbCaLam
             // 
             this.lbCaLam.AutoSize = true;
-            this.lbCaLam.Location = new System.Drawing.Point(54, 307);
+            this.lbCaLam.Location = new System.Drawing.Point(57, 372);
             this.lbCaLam.Name = "lbCaLam";
             this.lbCaLam.Size = new System.Drawing.Size(150, 29);
             this.lbCaLam.TabIndex = 6;
             this.lbCaLam.Text = "Hidden label";
             // 
-            // lbHidden
-            // 
-            this.lbHidden.AutoSize = true;
-            this.lbHidden.Location = new System.Drawing.Point(616, 74);
-            this.lbHidden.Name = "lbHidden";
-            this.lbHidden.Size = new System.Drawing.Size(150, 29);
-            this.lbHidden.TabIndex = 5;
-            this.lbHidden.Text = "Hidden label";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 250);
+            this.label1.Location = new System.Drawing.Point(57, 315);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 29);
             this.label1.TabIndex = 4;
@@ -109,7 +98,7 @@
             // txtTimer
             // 
             this.txtTimer.Enabled = false;
-            this.txtTimer.Location = new System.Drawing.Point(267, 247);
+            this.txtTimer.Location = new System.Drawing.Point(270, 312);
             this.txtTimer.Name = "txtTimer";
             this.txtTimer.Size = new System.Drawing.Size(167, 35);
             this.txtTimer.TabIndex = 3;
@@ -120,12 +109,12 @@
             this.dgvCaLamViec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCaLamViec.Location = new System.Drawing.Point(59, 74);
             this.dgvCaLamViec.Name = "dgvCaLamViec";
-            this.dgvCaLamViec.Size = new System.Drawing.Size(530, 150);
+            this.dgvCaLamViec.Size = new System.Drawing.Size(812, 200);
             this.dgvCaLamViec.TabIndex = 2;
             // 
             // btnChamCong
             // 
-            this.btnChamCong.Location = new System.Drawing.Point(59, 355);
+            this.btnChamCong.Location = new System.Drawing.Point(62, 420);
             this.btnChamCong.Name = "btnChamCong";
             this.btnChamCong.Size = new System.Drawing.Size(157, 46);
             this.btnChamCong.TabIndex = 1;
@@ -150,7 +139,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 548);
+            this.BackColor = System.Drawing.Color.DodgerBlue;
+            this.ClientSize = new System.Drawing.Size(952, 559);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -178,7 +168,6 @@
         private System.Windows.Forms.TextBox txtTimer;
         private System.Windows.Forms.DataGridView dgvCaLamViec;
         private System.Windows.Forms.Button btnChamCong;
-        private System.Windows.Forms.Label lbHidden;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbCaLam;
     }

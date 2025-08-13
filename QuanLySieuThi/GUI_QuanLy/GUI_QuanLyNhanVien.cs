@@ -480,25 +480,33 @@ namespace GUI_QuanLy
             }
             return soNgayCong;
         }
-        private void LoadSoNgayCong()
+        private void LoadSoNgayCong(int maBangLuong)
         {
             int maNhanVien = int.Parse(txtMaNhanVienChon.Text);
-            
-            DateTime thangTruoc = DateTime.Now.AddMonths(-1);
-            DateTime ngayDauTienThangTruoc = new DateTime(thangTruoc.Year, thangTruoc.Month, 1);
-            DateTime ngayHomQua = DateTime.Now.AddDays(-1);
-            //DateTime ngayHomQua = DateTime.Now;
-            DataTable bangLuongThangTruoc = busBangLuong.GetBangLuong(maNhanVien, thangTruoc.Month, thangTruoc.Year);
-            Console.WriteLine("DEBUG so ngay cong: " + bangLuongThangTruoc);
-            if (bangLuongThangTruoc.Rows.Count == 0 || bangLuongThangTruoc.Rows[0]["NgayChotLuong"] == DBNull.Value)
+            Console.WriteLine("DEBUG: MaBangLuong: " + maBangLuong);
+            var bangLuong = busBangLuong.GetBangLuongByMaLuong(maBangLuong);
+            if (bangLuong == null)
             {
-                txtSoNgayCong.Text = TinhSoNgayCong(maNhanVien, ngayDauTienThangTruoc, ngayHomQua).ToString();
+                MessageBox.Show("Không tìm thấy bảng lương.");
+                return;
             }
-            else
-            {
-                DateTime ngayChotLuongThangTruoc = Convert.ToDateTime(bangLuongThangTruoc.Rows[0]["NgayChotLuong"]);
-                txtSoNgayCong.Text = TinhSoNgayCong(maNhanVien, ngayChotLuongThangTruoc, ngayHomQua).ToString();
-            }
+            Console.WriteLine(bangLuong.SoNgayCong.ToString());
+            txtSoNgayCong.Text = bangLuong.SoNgayCong.ToString();
+            //DateTime thangTruoc = DateTime.Now.AddMonths(-1);
+            //DateTime ngayDauTienThangTruoc = new DateTime(thangTruoc.Year, thangTruoc.Month, 1);
+            //DateTime ngayHomQua = DateTime.Now.AddDays(-1);
+            ////DateTime ngayHomQua = DateTime.Now;
+            //DataTable bangLuongThangTruoc = busBangLuong.GetBangLuong(maNhanVien, thangTruoc.Month, thangTruoc.Year);
+            //Console.WriteLine("DEBUG so ngay cong: " + bangLuongThangTruoc);
+            //if (bangLuongThangTruoc.Rows.Count == 0 || bangLuongThangTruoc.Rows[0]["NgayChotLuong"] == DBNull.Value)
+            //{
+            //    txtSoNgayCong.Text = TinhSoNgayCong(maNhanVien, ngayDauTienThangTruoc, ngayHomQua).ToString();
+            //}
+            //else
+            //{
+            //    DateTime ngayChotLuongThangTruoc = Convert.ToDateTime(bangLuongThangTruoc.Rows[0]["NgayChotLuong"]);
+            //    txtSoNgayCong.Text = TinhSoNgayCong(maNhanVien, ngayChotLuongThangTruoc, ngayHomQua).ToString();
+            //}
         }
         private void LoadSoLuongDuTinh()
         {
@@ -516,7 +524,6 @@ namespace GUI_QuanLy
                     txtMaNhanVienChon.Text = row["MaNhanVien"].ToString();
                     txtTenNhanVienChon.Text = row["HoTenNV"].ToString();
                     LoadLuongNhanVien();
-                    LoadSoNgayCong();
                     LoadSoLuongDuTinh();
                     DataTable dataTable = busBangLuong.GetBangLuong(int.Parse(txtMaNhanVienChon.Text));
                     btnThemKhoanLuong.Enabled = true;
@@ -575,7 +582,7 @@ namespace GUI_QuanLy
                 if (trangThai == EnumExtensions.GetDescription(TrangThaiBangLuong.DangXuLy))
                 {
                     txtTrangThai.ForeColor = Color.Red;
-                    LoadSoNgayCong();
+                    txtSoNgayCong.Text = row.Cells["SoNgayCong"].Value.ToString();
                     txtTienLuongDuTinh.Text = busChiTietLuong.GetTongTienLuong(maBangLuong).ToString();
                 }
                 else

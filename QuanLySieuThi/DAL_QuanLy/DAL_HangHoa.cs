@@ -15,14 +15,16 @@ namespace DAL_QuanLy
         {
             try
             {
-                string sql = "INSERT INTO HangHoa (TenHangHoa, DonViTinh, GiaBan, MaLoaiHangHoa) " +
-                             "VALUES (@TenHangHoa, @DonViTinh, @GiaBan, @MaLoaiHangHoa)";
+                string sql = "INSERT INTO HangHoa (TenHangHoa, DonViTinh, GiaBan, MaLoaiHangHoa, HanSuDungTieuChuan, DonViHanSuDung) " +
+                             "VALUES (@TenHangHoa, @DonViTinh, @GiaBan, @MaLoaiHangHoa, @HanSuDungTieuChuan, @DonViHanSuDung)";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@TenHangHoa", newHangHoa.TenHangHoa);
                     cmd.Parameters.AddWithValue("@DonViTinh", newHangHoa.DonViTinh);
                     cmd.Parameters.AddWithValue("@GiaBan", newHangHoa.GiaBan);
                     cmd.Parameters.AddWithValue("@MaLoaiHangHoa", newHangHoa.MaLoaiHangHoa);
+                    cmd.Parameters.AddWithValue("@HanSuDungTieuChuan", newHangHoa.HanSuDungTieuChuan);
+                    cmd.Parameters.AddWithValue("@DonViHanSuDung", newHangHoa.DonViHanSuDung);
                     conn.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
                     return rowsAffected > 0;
@@ -43,7 +45,8 @@ namespace DAL_QuanLy
             try
             {
                 string sql = "UPDATE HangHoa SET TenHangHoa = @TenHangHoa, DonViTinh = @DonViTinh, " +
-                             "GiaBan = @GiaBan, MaLoaiHangHoa = @MaLoaiHangHoa WHERE MaHangHoa = @MaHangHoa";
+                             "GiaBan = @GiaBan, MaLoaiHangHoa = @MaLoaiHangHoa, HanSuDungTieuChuan = @HanSuDungTieuChuan, " +
+                             "DonViHanSuDung = @DonViHanSuDung WHERE MaHangHoa = @MaHangHoa";
                 using (var cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@MaHangHoa", updatedHangHoa.MaHangHoa);
@@ -51,6 +54,8 @@ namespace DAL_QuanLy
                     cmd.Parameters.AddWithValue("@DonViTinh", updatedHangHoa.DonViTinh);
                     cmd.Parameters.AddWithValue("@GiaBan", updatedHangHoa.GiaBan);
                     cmd.Parameters.AddWithValue("@MaLoaiHangHoa", updatedHangHoa.MaLoaiHangHoa);
+                    cmd.Parameters.AddWithValue("@HanSuDungTieuChuan", updatedHangHoa.HanSuDungTieuChuan);
+                    cmd.Parameters.AddWithValue("@DonViHanSuDung", updatedHangHoa.DonViHanSuDung);
                     conn.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
                     conn.Close();

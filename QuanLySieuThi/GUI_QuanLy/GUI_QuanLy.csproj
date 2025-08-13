@@ -67,6 +67,12 @@
     <Compile Include="GUI_NhanVienPopup.Designer.cs">
       <DependentUpon>GUI_NhanVienPopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI_Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_Order.Designer.cs">
+      <DependentUpon>GUI_Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI_QuanLyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="GUI_QuanLyKho.resx">
       <DependentUpon>GUI_QuanLyKho.cs</DependentUpon>
@@ -146,6 +153,9 @@
       <Project>{93491393-847b-4462-acf7-302efabf7241}</Project>
       <Name>DTO_QuanLy</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DFS dinh.drawio.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

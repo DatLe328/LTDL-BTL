@@ -41,6 +41,7 @@ namespace GUI_QuanLy
                 MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.");
                 this.Close();
             }
+            LoadQuanLyHangHoa();
         }
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -68,7 +69,9 @@ namespace GUI_QuanLy
          */
         private void LoadQuanLyHangHoa()
         {
+            Utils.MyDataGridViewFormat(dgvHangHoa);
             LoadComboBoxHangHoa();
+            LoadComboBoxHSD();
             PerformSearchHangHoa();
         }
         private void LoadComboBoxHangHoa()
@@ -81,6 +84,14 @@ namespace GUI_QuanLy
                 cbLoaiHangHoa.ValueMember = "MaLoaiHangHoa";
                 cbLoaiHangHoa.SelectedIndex = 0;
             }
+        }
+
+        private void LoadComboBoxHSD()
+        {
+            cbHSD.Items.Clear();
+            cbHSD.Items.Add("Ngày");
+            cbHSD.Items.Add("Tháng");
+            cbHSD.SelectedIndex = 1;
         }
         private void PerformSearchHangHoa()
         {
@@ -102,6 +113,8 @@ namespace GUI_QuanLy
                 cbLoaiHangHoa.SelectedValue = selectedRow.Cells["MaLoaiHangHoa"].Value;
                 txtDonViTinh.Text = selectedRow.Cells["DonViTinh"].Value.ToString();
                 txtGiaBan.Text = selectedRow.Cells["GiaBan"].Value.ToString();
+                txtHSDTC.Text = selectedRow.Cells["HanSuDungTieuChuan"].Value != null ? selectedRow.Cells["HanSuDungTieuChuan"].Value.ToString() : "0";
+                cbHSD.SelectedItem = selectedRow.Cells["DonViHanSuDung"].Value != null ? selectedRow.Cells["DonViHanSuDung"].Value.ToString() : "Ngày";
             }
         }
 
@@ -112,7 +125,7 @@ namespace GUI_QuanLy
             int giaBan = txtGiaBan.Text.Trim() == "" ? 0 : Convert.ToInt32(txtGiaBan.Text.Trim());
             try
             {
-                if (string.IsNullOrEmpty(tenHangHoa) || string.IsNullOrEmpty(donViTinh))
+                if (string.IsNullOrEmpty(tenHangHoa) || string.IsNullOrEmpty(donViTinh) || string.IsNullOrEmpty(txtHSDTC.Text))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin hàng hóa.");
                     return;
@@ -123,7 +136,9 @@ namespace GUI_QuanLy
                     TenHangHoa = tenHangHoa,
                     MaLoaiHangHoa = maLoaiHangHoa,
                     DonViTinh = donViTinh,
-                    GiaBan = giaBan
+                    GiaBan = giaBan,
+                    HanSuDungTieuChuan = string.IsNullOrEmpty(txtHSDTC.Text) ? 0 : Convert.ToInt32(txtHSDTC.Text.Trim()),
+                    DonViHanSuDung = cbHSD.SelectedItem != null ? cbHSD.SelectedItem.ToString() : "Ngày"
                 };
                 bool result = busHangHoa.AddHangHoa(newHangHoa);
                 if (result)
@@ -192,7 +207,9 @@ namespace GUI_QuanLy
                         TenHangHoa = tenHangHoa,
                         MaLoaiHangHoa = maLoaiHangHoa,
                         DonViTinh = donViTinh,
-                        GiaBan = giaBan
+                        GiaBan = giaBan,
+                        DonViHanSuDung = cbHSD.SelectedItem != null ? cbHSD.SelectedItem.ToString() : "Ngày",
+                        HanSuDungTieuChuan = string.IsNullOrEmpty(txtHSDTC.Text) ? 0 : Convert.ToInt32(txtHSDTC.Text.Trim())
                     };
                     bool result = busHangHoa.UpdateHangHoa(updatedHangHoa);
                     if (result)
@@ -608,12 +625,19 @@ namespace GUI_QuanLy
                 }
             }
         }
+        /*
+         * Mở rộng thêm ngày tháng năm
+         */
         DateTime TinhHanSuDung(DateTime nsx, int hsdTieuChuan, string donVi)
         {
             return donVi.Equals("Tháng", StringComparison.OrdinalIgnoreCase)
                    ? nsx.AddMonths(hsdTieuChuan)
                    : nsx.AddDays(hsdTieuChuan);
         }
+
+        /*
+         * Kho hàng đang mặc định là 1
+         */
         private void btnDatHang_Click(object sender, EventArgs e)
         {
             try

@@ -12,6 +12,7 @@ namespace DTO_QuanLy
         private int maNhanVien;
         private int thang;
         private int nam;
+        private int tongLuong;
         private int soNgayCong;
         private DateTime ngayChotLuong;
         private string trangThai;
@@ -25,11 +26,12 @@ namespace DTO_QuanLy
             ngayChotLuong = DateTime.Now;
             trangThai = string.Empty;
         }
-        public DTO_BangLuong(int maLuong, int maNhanVien, int thang, int nam, int soNgayCong, DateTime ngayChotLuong, string trangThai)
+        public DTO_BangLuong(int maLuong, int maNhanVien, int thang, int nam, int tongLuong, int soNgayCong, DateTime ngayChotLuong, string trangThai)
         {
             this.maLuong = maLuong;
             this.maNhanVien = maNhanVien;
             this.thang = thang;
+            this.tongLuong = tongLuong;
             this.nam = nam;
             this.soNgayCong = soNgayCong;
             this.ngayChotLuong = ngayChotLuong;
@@ -43,5 +45,15 @@ namespace DTO_QuanLy
         public int SoNgayCong { get => soNgayCong; set => soNgayCong = value; }
         public DateTime NgayChotLuong { get => ngayChotLuong; set => ngayChotLuong = value; }
         public string TrangThai { get => trangThai; set => trangThai = value; }
+        public int TongLuong
+        {
+            get => tongLuong;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentException("TongLuong cannot be negative.");
+                tongLuong = value;
+            }
+        }
     }
 }
