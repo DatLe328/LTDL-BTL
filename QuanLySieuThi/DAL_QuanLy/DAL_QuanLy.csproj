@@ -62,6 +62,7 @@
     <Compile Include="DAL_ChucVu.cs" />
     <Compile Include="DAL_HangHoa.cs" />
     <Compile Include="DAL_HoaDonMua.cs" />
+    <Compile Include="DAL_KhoHang.cs" />
     <Compile Include="DAL_LoaiHangHoa.cs" />
     <Compile Include="DAL_LoHang.cs" />
     <Compile Include="DAL_NhaCungCap.cs" />

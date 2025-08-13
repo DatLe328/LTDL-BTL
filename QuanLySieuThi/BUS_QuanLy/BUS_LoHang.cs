@@ -22,7 +22,11 @@ namespace BUS_QuanLy
         }
         public DataTable GetLoHang(int maKho)
         {
-            return dalLoHang.GetLoHang();
+            return dalLoHang.GetLoHang(maKho);
+        }
+        public DataTable GetLoHangByMaHoaDon(int maHoaDon)
+        {
+            return dalLoHang.GetLoHangByMaHoaDon(maHoaDon);
         }
         public bool AddLoHang(DTO_LoHang newLoHang)
         {

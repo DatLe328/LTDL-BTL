@@ -22,6 +22,7 @@ namespace GUI_QuanLy
         private BUS_LoHang busLoHang;
         private BUS_NhaCungCap busNhaCungCap;
         private BUS_HoaDonMua busHoaDonMua;
+        private BUS_KhoHang busKhoHang;
 
         public GUI_QuanLyKho()
         {
@@ -31,6 +32,7 @@ namespace GUI_QuanLy
             busLoHang = new BUS_LoHang();
             busNhaCungCap = new BUS_NhaCungCap();
             busHoaDonMua = new BUS_HoaDonMua();
+            busKhoHang = new BUS_KhoHang();
         }
 
         private void QuanLyKho_Load(object sender, EventArgs e)
@@ -73,6 +75,7 @@ namespace GUI_QuanLy
             LoadComboBoxHangHoa();
             LoadComboBoxHSD();
             PerformSearchHangHoa();
+            Utils.MyDataGridViewFormat(dgvHangHoa);
         }
         private void LoadComboBoxHangHoa()
         {
@@ -251,7 +254,7 @@ namespace GUI_QuanLy
                 MessageBox.Show($"Lỗi khi tải lô hàng: {ex.Message}");
             }
             dgvLoHang.SelectionChanged += dgvLoHang_SelectionChanged;
-
+            Utils.MyDataGridViewFormat(dgvLoHang);
         }
         private void dgvLoHang_SelectionChanged(object sender, EventArgs e)
         {
@@ -392,6 +395,7 @@ namespace GUI_QuanLy
             }
             this.btnResetHoaDonMua.Click += new System.EventHandler(this.btnResetHoaDonMua_Click);
             VeBieuDoThongKe();
+            Utils.MyDataGridViewFormat(dgvHoaDonMua);
         }
 
         private void btnTimKiemHoaDonMua_Click(object sender, EventArgs e)
@@ -440,7 +444,16 @@ namespace GUI_QuanLy
 
             LoadHoaDonMua();
         }
-
+        private void dgvHoaDonMua_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewRow row = dgvHoaDonMua.Rows[e.RowIndex];
+                int maHoaDon = Convert.ToInt32(row.Cells["MaHoaDonMua"].Value);
+                GUI_OrderDetail popup = new GUI_OrderDetail(maHoaDon);
+                popup.Show();
+            }
+        }
 
         /*
          * Đặt hàng
@@ -452,6 +465,7 @@ namespace GUI_QuanLy
             LoadDanhSachDatMua();
             LoadDanhSachHangHoa();
             LoadDatHang();
+            LoadComboBoxKhoHang();
             Utils.MyDataGridViewFormat(dgvDanhSachDatMua);
             Utils.MyDataGridViewFormat(dgvDanhSachHangHoa);
         }
@@ -567,6 +581,17 @@ namespace GUI_QuanLy
                 cbNhaCungCap.SelectedIndex = 0;
             }
         }
+        private void LoadComboBoxKhoHang()
+        {
+            DataTable dtKhoHang = busKhoHang.GetKhoHang();
+            if (dtKhoHang != null && dtKhoHang.Rows.Count > 0)
+            {
+                cbKhoHang.DataSource = dtKhoHang;
+                cbKhoHang.DisplayMember = "TenKho";
+                cbKhoHang.ValueMember = "MaKho";
+                cbKhoHang.SelectedIndex = 0;
+            }
+        }
         private void btnThemHangDat_Click(object sender, EventArgs e)
         {
             if (dgvDanhSachHangHoa.SelectedRows.Count > 0)
@@ -601,6 +626,17 @@ namespace GUI_QuanLy
                         }
                     }
                     dgvDanhSachDatMua.Rows.Add(maHangHoa, tenHangHoa, giaBan, soLuong, donViTinh, maLoaiHangHoa, maNhaCungCap, hanSuDungTieuChuan, donViHanSuDung);
+                    int tongTien;
+                    if (string.IsNullOrEmpty(txtTongTien.Text))
+                    {
+                        tongTien = 0;
+                    }
+                    else
+                    {
+                        tongTien = Convert.ToInt32(txtTongTien.Text);
+                    }
+                    tongTien += soLuong * giaBan;
+                    txtTongTien.Text = tongTien.ToString();
                 }
                     catch (Exception ex)
                     {
@@ -625,9 +661,7 @@ namespace GUI_QuanLy
                 }
             }
         }
-        /*
-         * Mở rộng thêm ngày tháng năm
-         */
+
         DateTime TinhHanSuDung(DateTime nsx, int hsdTieuChuan, string donVi)
         {
             return donVi.Equals("Tháng", StringComparison.OrdinalIgnoreCase)
@@ -635,9 +669,7 @@ namespace GUI_QuanLy
                    : nsx.AddDays(hsdTieuChuan);
         }
 
-        /*
-         * Kho hàng đang mặc định là 1
-         */
+        
         private void btnDatHang_Click(object sender, EventArgs e)
         {
             try
@@ -656,7 +688,8 @@ namespace GUI_QuanLy
                 };
                 bool result = busHoaDonMua.AddHoaDonMua(newHoaDonMua);
                 int maHoaDonMua = busHoaDonMua.GetLastHoaDonMuaId();
-
+                var maKho = int.Parse(cbKhoHang.SelectedValue.ToString());
+                Console.WriteLine("DEBUG: Ma kho: " + maKho);
                 List<DTO_LoHang> danhSachDatHang = new List<DTO_LoHang>();
                 foreach (DataGridViewRow row in dgvDanhSachDatMua.Rows)
                 {
@@ -669,7 +702,6 @@ namespace GUI_QuanLy
                     var hanSuDungTieuChuan = row.Cells["HanSuDungTieuChuan"].Value != null ? Convert.ToInt32(row.Cells["HanSuDungTieuChuan"].Value) : 0;
                     var donViHanSuDung = row.Cells["DonViHanSuDung"].Value != null ? row.Cells["DonViHanSuDung"].Value.ToString() : "Ngày";
                     var hanSuDung = TinhHanSuDung(DateTime.Now, hanSuDungTieuChuan, donViHanSuDung);
-                    var maKho = 1;
                     Console.WriteLine($"Mã hàng hóa: {maHangHoa}, Số lượng: {soLuong}, Đơn giá: {donGia}, Ngày sản xuất: {ngaySanXuat}, Hạn sử dụng: {hanSuDung}");
                     Console.WriteLine($"Mã hóa đơn mua: {maHoaDonMua}, Mã kho: {maKho}");
 
@@ -695,6 +727,7 @@ namespace GUI_QuanLy
                     MessageBox.Show("Đặt hàng thành công.");
                     LoadDatHang();
                     dgvDanhSachDatMua.Rows.Clear();
+                    txtTongTien.Text = "0";
                 }
                 else
                 {
@@ -706,5 +739,7 @@ namespace GUI_QuanLy
                 MessageBox.Show($"Lỗi khi đặt hàng: {ex.Message}");
             }
         }
+
+        
     }
 }

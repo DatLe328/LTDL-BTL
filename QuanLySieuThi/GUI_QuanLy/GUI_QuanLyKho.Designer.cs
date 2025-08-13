@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageHangHoa = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -101,6 +101,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbKhoHang = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtTongTien = new System.Windows.Forms.TextBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl.SuspendLayout();
             this.tabPageHangHoa.SuspendLayout();
@@ -567,16 +571,16 @@
             // 
             // chartThongke
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartThongke.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartThongke.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chartThongke.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartThongke.Legends.Add(legend3);
             this.chartThongke.Location = new System.Drawing.Point(25, 21);
             this.chartThongke.Name = "chartThongke";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartThongke.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartThongke.Series.Add(series3);
             this.chartThongke.Size = new System.Drawing.Size(535, 498);
             this.chartThongke.TabIndex = 12;
             this.chartThongke.Text = "chart1";
@@ -632,6 +636,7 @@
             this.dgvHoaDonMua.RowHeadersWidth = 51;
             this.dgvHoaDonMua.Size = new System.Drawing.Size(538, 390);
             this.dgvHoaDonMua.TabIndex = 0;
+            this.dgvHoaDonMua.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonMua_CellDoubleClick);
             // 
             // tabPage3
             // 
@@ -649,9 +654,9 @@
             // 
             // btnDatHang
             // 
-            this.btnDatHang.Location = new System.Drawing.Point(1115, 42);
+            this.btnDatHang.Location = new System.Drawing.Point(1159, 42);
             this.btnDatHang.Name = "btnDatHang";
-            this.btnDatHang.Size = new System.Drawing.Size(165, 68);
+            this.btnDatHang.Size = new System.Drawing.Size(133, 68);
             this.btnDatHang.TabIndex = 4;
             this.btnDatHang.Text = "Lưu và gửi đơn hàng";
             this.btnDatHang.UseVisualStyleBackColor = true;
@@ -664,7 +669,7 @@
             this.groupBox10.Controls.Add(this.txtSoLuongDatMua);
             this.groupBox10.Location = new System.Drawing.Point(6, 20);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(369, 185);
+            this.groupBox10.Size = new System.Drawing.Size(291, 185);
             this.groupBox10.TabIndex = 3;
             this.groupBox10.TabStop = false;
             // 
@@ -697,20 +702,24 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.txtTongTien);
+            this.groupBox9.Controls.Add(this.label22);
+            this.groupBox9.Controls.Add(this.cbKhoHang);
+            this.groupBox9.Controls.Add(this.label21);
             this.groupBox9.Controls.Add(this.label18);
             this.groupBox9.Controls.Add(this.label17);
             this.groupBox9.Controls.Add(this.txtGhiChu);
             this.groupBox9.Controls.Add(this.cbNhaCungCap);
-            this.groupBox9.Location = new System.Drawing.Point(425, 20);
+            this.groupBox9.Location = new System.Drawing.Point(322, 20);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(642, 185);
+            this.groupBox9.Size = new System.Drawing.Size(812, 185);
             this.groupBox9.TabIndex = 2;
             this.groupBox9.TabStop = false;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(35, 42);
+            this.label18.Location = new System.Drawing.Point(16, 42);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(160, 29);
             this.label18.TabIndex = 5;
@@ -719,7 +728,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(35, 117);
+            this.label17.Location = new System.Drawing.Point(16, 117);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(94, 29);
             this.label17.TabIndex = 3;
@@ -727,18 +736,18 @@
             // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Location = new System.Drawing.Point(201, 89);
+            this.txtGhiChu.Location = new System.Drawing.Point(182, 89);
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(392, 90);
+            this.txtGhiChu.Size = new System.Drawing.Size(279, 90);
             this.txtGhiChu.TabIndex = 4;
             this.txtGhiChu.Text = "";
             // 
             // cbNhaCungCap
             // 
             this.cbNhaCungCap.FormattingEnabled = true;
-            this.cbNhaCungCap.Location = new System.Drawing.Point(201, 34);
+            this.cbNhaCungCap.Location = new System.Drawing.Point(182, 34);
             this.cbNhaCungCap.Name = "cbNhaCungCap";
-            this.cbNhaCungCap.Size = new System.Drawing.Size(230, 37);
+            this.cbNhaCungCap.Size = new System.Drawing.Size(279, 37);
             this.cbNhaCungCap.TabIndex = 0;
             // 
             // groupBox8
@@ -807,6 +816,41 @@
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(501, 39);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(56, 29);
+            this.label21.TabIndex = 6;
+            this.label21.Text = "Kho";
+            // 
+            // cbKhoHang
+            // 
+            this.cbKhoHang.FormattingEnabled = true;
+            this.cbKhoHang.Location = new System.Drawing.Point(585, 34);
+            this.cbKhoHang.Name = "cbKhoHang";
+            this.cbKhoHang.Size = new System.Drawing.Size(211, 37);
+            this.cbKhoHang.TabIndex = 7;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(467, 124);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(115, 29);
+            this.label22.TabIndex = 8;
+            this.label22.Text = "Tổng tiền";
+            // 
+            // txtTongTien
+            // 
+            this.txtTongTien.Enabled = false;
+            this.txtTongTien.Location = new System.Drawing.Point(585, 118);
+            this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.Size = new System.Drawing.Size(211, 35);
+            this.txtTongTien.TabIndex = 9;
+            this.txtTongTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // GUI_QuanLyKho
             // 
@@ -925,5 +969,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbHSD;
         private System.Windows.Forms.TextBox txtHSDTC;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox cbKhoHang;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtTongTien;
     }
 }

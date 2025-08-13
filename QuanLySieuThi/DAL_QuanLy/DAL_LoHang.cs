@@ -34,6 +34,54 @@ namespace DAL_QuanLy
                 return null;
             }
         }
+        public DataTable GetLoHang(int maKho)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM LoHang WHERE MaKho = @MaKho";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaKho", maKho);
+                    conn.Open();
+                    using (var adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                    conn.Close();
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
+        }
+        public DataTable GetLoHangByMaHoaDon(int maHoaDon)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM LoHang LH, HangHoa HH WHERE LH.MaHangHoa = HH.MaHangHoa AND MaHoaDonMua = @MaHoaDon";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+                    conn.Open();
+                    using (var adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                    }
+                    conn.Close();
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
+        }
         public bool AddLoHang(DTO_LoHang newLoHang)
         {
             try

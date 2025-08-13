@@ -49,6 +49,7 @@
     <Compile Include="BUS_ChucVu.cs" />
     <Compile Include="BUS_HangHoa.cs" />
     <Compile Include="BUS_HoaDonMua.cs" />
+    <Compile Include="BUS_KhoHang.cs" />
     <Compile Include="BUS_LoaiHangHoa.cs" />
     <Compile Include="BUS_LoHang.cs" />
     <Compile Include="BUS_NhaCungCap.cs" />
